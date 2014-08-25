@@ -18,6 +18,12 @@
 		387D3F6C19ABD7280002AF3F /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 387D3F6B19ABD7280002AF3F /* SearchViewController.m */; };
 		387D3F6F19ABD75A0002AF3F /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 387D3F6E19ABD75A0002AF3F /* UserViewController.m */; };
 		387D3F7319ABD7EB0002AF3F /* RepoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 387D3F7219ABD7EB0002AF3F /* RepoViewController.m */; };
+		387D3F7519ABE4860002AF3F /* UserSingleSample.json in Resources */ = {isa = PBXBuildFile; fileRef = 387D3F7419ABE4860002AF3F /* UserSingleSample.json */; };
+		387D3F7819ABE4D50002AF3F /* UserSelfSample.json in Resources */ = {isa = PBXBuildFile; fileRef = 387D3F7719ABE4D50002AF3F /* UserSelfSample.json */; };
+		387D3F7A19ABE5290002AF3F /* SearchRepoSample.json in Resources */ = {isa = PBXBuildFile; fileRef = 387D3F7919ABE5290002AF3F /* SearchRepoSample.json */; };
+		387D3F7C19ABE5800002AF3F /* SearchCodeSample.json in Resources */ = {isa = PBXBuildFile; fileRef = 387D3F7B19ABE5800002AF3F /* SearchCodeSample.json */; };
+		387D3F8019ABE5E50002AF3F /* SearchUserSample.json in Resources */ = {isa = PBXBuildFile; fileRef = 387D3F7F19ABE5E50002AF3F /* SearchUserSample.json */; };
+		387D3F8219ABE6400002AF3F /* SearchIssuesSample.json in Resources */ = {isa = PBXBuildFile; fileRef = 387D3F8119ABE6400002AF3F /* SearchIssuesSample.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +58,12 @@
 		387D3F6E19ABD75A0002AF3F /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
 		387D3F7119ABD7EB0002AF3F /* RepoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepoViewController.h; sourceTree = "<group>"; };
 		387D3F7219ABD7EB0002AF3F /* RepoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepoViewController.m; sourceTree = "<group>"; };
+		387D3F7419ABE4860002AF3F /* UserSingleSample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UserSingleSample.json; sourceTree = "<group>"; };
+		387D3F7719ABE4D50002AF3F /* UserSelfSample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UserSelfSample.json; sourceTree = "<group>"; };
+		387D3F7919ABE5290002AF3F /* SearchRepoSample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SearchRepoSample.json; sourceTree = "<group>"; };
+		387D3F7B19ABE5800002AF3F /* SearchCodeSample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SearchCodeSample.json; sourceTree = "<group>"; };
+		387D3F7F19ABE5E50002AF3F /* SearchUserSample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SearchUserSample.json; sourceTree = "<group>"; };
+		387D3F8119ABE6400002AF3F /* SearchIssuesSample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SearchIssuesSample.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +105,7 @@
 		387D3F3C19ABD2230002AF3F /* WK6GithubClient */ = {
 			isa = PBXGroup;
 			children = (
+				387D3F7619ABE49E0002AF3F /* JSON */,
 				387D3F4119ABD2230002AF3F /* AppDelegate.h */,
 				387D3F4219ABD2230002AF3F /* AppDelegate.m */,
 				387D3F6519ABD2400002AF3F /* Model */,
@@ -169,6 +182,19 @@
 				387D3F6719ABD5180002AF3F /* NetworkController.m */,
 			);
 			name = Network;
+			sourceTree = "<group>";
+		};
+		387D3F7619ABE49E0002AF3F /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				387D3F7419ABE4860002AF3F /* UserSingleSample.json */,
+				387D3F7719ABE4D50002AF3F /* UserSelfSample.json */,
+				387D3F7919ABE5290002AF3F /* SearchRepoSample.json */,
+				387D3F7B19ABE5800002AF3F /* SearchCodeSample.json */,
+				387D3F7F19ABE5E50002AF3F /* SearchUserSample.json */,
+				387D3F8119ABE6400002AF3F /* SearchIssuesSample.json */,
+			);
+			name = JSON;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,8 +277,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				387D3F7819ABE4D50002AF3F /* UserSelfSample.json in Resources */,
 				387D3F4C19ABD2230002AF3F /* Main.storyboard in Resources */,
+				387D3F7C19ABE5800002AF3F /* SearchCodeSample.json in Resources */,
+				387D3F8219ABE6400002AF3F /* SearchIssuesSample.json in Resources */,
+				387D3F7519ABE4860002AF3F /* UserSingleSample.json in Resources */,
 				387D3F4E19ABD2230002AF3F /* Images.xcassets in Resources */,
+				387D3F8019ABE5E50002AF3F /* SearchUserSample.json in Resources */,
+				387D3F7A19ABE5290002AF3F /* SearchRepoSample.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
