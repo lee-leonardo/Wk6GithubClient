@@ -17,14 +17,29 @@
 
 @implementation SearchViewController
 
-- (void)viewDidLoad {
+-(void)viewDidLoad {
     [super viewDidLoad];
-	
-	
 	//This is only to debug the initialization of NetworkController
 	_appDelegate = [[UIApplication sharedApplication] delegate];
-	[[_appDelegate networkController] fetchResultsRepoSample];
+	//[[_appDelegate networkController] fetchResultsRepoSample];
+}
 
+-(void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	
+	//if (![[NSUserDefaults standardUserDefaults] stringForKey:@"GithubOAuth"]) {
+		[[_appDelegate networkController] githubAuthenticate];
+	//}
+	
+//	self.appDelegate
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+	[super viewWillDisappear:animated];
+	
+	if (![[NSUserDefaults standardUserDefaults] stringForKey:@"GithubOAuth"]) {
+		[[NSUserDefaults standardUserDefaults] setObject:[[_appDelegate networkController] OAuthToken] forKey:@"GithubOAuth"];
+	}
 }
 
 - (void)didReceiveMemoryWarning {

@@ -12,6 +12,11 @@
 
 @interface NetworkController : NSObject
 
+@property (nonatomic, strong) NSString *OAuthToken;
+
+-(void)githubAuthenticate;
+-(void)handleCallbackURL:(NSURL *)url;
+
 -(void)fetchResultsRepoSample;
 -(void)fetchUserData;
 

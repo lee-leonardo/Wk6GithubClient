@@ -9,7 +9,7 @@
 #import <CoreData/CoreData.h>
 #import "NetworkController.h"
 #import "AppDelegate.h"
-#import "User.h"
+#import "Constants.h"
 
 
 /*
@@ -32,6 +32,9 @@
 	if (self) {
 		_appDelegate = [[UIApplication sharedApplication] delegate];
 		_dataContext = _appDelegate.managedObjectContext;
+		if ( [[NSUserDefaults standardUserDefaults] stringForKey:@"GithubOAuth"]) {
+			_OAuthToken = [[NSUserDefaults standardUserDefaults] stringForKey:@"GithubOAuth"];
+		}
 	}
 	return self;
 }
@@ -130,6 +133,24 @@
 }
 
 #pragma mark - OAuthentication
+-(void)githubAuthenticate {
+	NSString *urlString = [NSString stringWithFormat:kGithubOAuthURL,kGithubClientID,kGithubCallBackURI,@"user,repo"];
+	NSLog(@"%@", urlString);
+	
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
+	
+}
+
+-(void)handleCallbackURL:(NSURL *)url {
+	NSLog(@"url: %@", url);
+	
+	
+	
+	
+	//This is to pass the OAuth token to NSUserDefaults.
+//	self.OAuthToken =
+	
+}
 
 
 @end

@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString * const kClientID;
-extern NSString * const kClientSecret;
-extern NSString * const kCallBackURI;
+extern NSString * const kGithubClientID;
+extern NSString * const kGithubClientSecret;
+extern NSString * const kGithubCallBackURI;
 extern NSString * const kGithubOAuthURL;
 
 

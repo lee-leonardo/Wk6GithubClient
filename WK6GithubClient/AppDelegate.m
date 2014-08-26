@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "NetworkController.h"
 
 @interface AppDelegate ()
 
@@ -20,6 +21,27 @@
 	
 	_networkController = [[NetworkController alloc] init];
 	//Implement things for NSUserDefaults.
+	
+	
+//	UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Authorization"
+//																			  message:@"This app requires githubAuthentication"
+//																	   preferredStyle:UIAlertControllerStyleAlert];
+//	UIAlertAction *okay = [UIAlertAction actionWithTitle:@"Okay" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+//		[alertController dismissViewControllerAnimated:YES completion:nil];
+//	}];
+//	[alertController addAction:okay];
+//	UIAlertController * __weak alert = alertController;
+//	[presentViewController:alert animated:YES completion:nil];
+	
+	
+
+	return YES;
+}
+
+-(BOOL)application:(UIApplication *)application
+	 handleOpenURL:(NSURL *)url {
+	
+	[self.networkController handleCallbackURL: url];
 	
 	return YES;
 }
