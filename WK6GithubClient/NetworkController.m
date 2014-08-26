@@ -11,9 +11,12 @@
 #import "AppDelegate.h"
 #import "User.h"
 
-struct Github {
-	
-};
+
+/*
+ Develop a GCD singleton.
+ A token is a static variable (starts nil).
+ */
+
 
 @interface NetworkController() <NSURLSessionTaskDelegate>
 @property (nonatomic, strong) AppDelegate *appDelegate;
@@ -33,6 +36,10 @@ struct Github {
 	return self;
 }
 
+-(void)sessionBasic {
+//	NSURLSession *session = [NSURLSession sharedSession] dataTaskWithURL:<#(NSURL *)#> completionHandler:<#^(NSData *data, NSURLResponse *response, NSError *error)completionHandler#>
+
+}
 
 #pragma mark - Fetching Samples
 -(void)fetchSearchRepoResults {
@@ -52,7 +59,6 @@ struct Github {
 		
 		NSLog(@"%@ %@", name, url);
 
-		
 	}
 }
 
@@ -121,8 +127,9 @@ struct Github {
 //	User *user = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:_dataContext];
 //	user.name = name;
 //	user.login = login;
-	
-	
 }
+
+#pragma mark - OAuthentication
+
 
 @end

@@ -83,7 +83,43 @@
                     <view key="view" contentMode="scaleToFill" id="U4w-AW-dYl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fOI-Un-ht3">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vga-la-b3o">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="16" minY="16" maxX="16" maxY="16"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ContactCell" id="cKj-mK-K95">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="cjZ-Dw-TGG">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fOI-Un-ht3" firstAttribute="leading" secondItem="U4w-AW-dYl" secondAttribute="leading" id="6xs-ZM-ckq"/>
+                            <constraint firstAttribute="trailing" secondItem="cjZ-Dw-TGG" secondAttribute="trailing" id="CY7-Zy-BrT"/>
+                            <constraint firstItem="fOI-Un-ht3" firstAttribute="top" secondItem="cjZ-Dw-TGG" secondAttribute="bottom" id="J1O-ch-W3q"/>
+                            <constraint firstItem="SSM-EJ-LC4" firstAttribute="top" secondItem="fOI-Un-ht3" secondAttribute="bottom" id="O5o-2z-FNo"/>
+                            <constraint firstItem="cjZ-Dw-TGG" firstAttribute="top" secondItem="ZeK-Tj-C2S" secondAttribute="bottom" id="QiN-YJ-QyG"/>
+                            <constraint firstItem="cjZ-Dw-TGG" firstAttribute="leading" secondItem="U4w-AW-dYl" secondAttribute="leading" id="X0o-Xd-8kX"/>
+                            <constraint firstItem="fOI-Un-ht3" firstAttribute="top" secondItem="cjZ-Dw-TGG" secondAttribute="bottom" id="dcy-eD-afr"/>
+                            <constraint firstAttribute="trailing" secondItem="fOI-Un-ht3" secondAttribute="trailing" id="gJQ-Wi-jBi"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="contacts" id="eh8-w6-Nd4"/>
                 </viewController>
@@ -131,19 +167,27 @@
                                     <string>Title</string>
                                 </scopeButtonTitles>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="iwP-Z3-HiJ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="iSh-PN-U7Y">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RepoCell" id="zGx-5F-E9g">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zGx-5F-E9g" id="SOM-en-eWf">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="eSv-uk-CwL" secondAttribute="trailing" id="0qg-RE-DXZ"/>
-                            <constraint firstItem="iwP-Z3-HiJ" firstAttribute="top" secondItem="eSv-uk-CwL" secondAttribute="bottom" id="G0n-HC-KJC"/>
-                            <constraint firstItem="m8Z-wA-k92" firstAttribute="top" secondItem="iwP-Z3-HiJ" secondAttribute="bottom" id="J6L-CW-4oM"/>
+                            <constraint firstAttribute="trailing" secondItem="iSh-PN-U7Y" secondAttribute="trailing" id="1o3-JN-J95"/>
+                            <constraint firstItem="iSh-PN-U7Y" firstAttribute="top" secondItem="eSv-uk-CwL" secondAttribute="bottom" id="4cL-lD-cmv"/>
+                            <constraint firstItem="m8Z-wA-k92" firstAttribute="top" secondItem="iSh-PN-U7Y" secondAttribute="bottom" id="ZU8-1p-kVF"/>
                             <constraint firstItem="eSv-uk-CwL" firstAttribute="leading" secondItem="Jo9-Rg-mX7" secondAttribute="leading" id="ZkT-fR-cdI"/>
-                            <constraint firstItem="iwP-Z3-HiJ" firstAttribute="leading" secondItem="Jo9-Rg-mX7" secondAttribute="leading" id="c4k-C5-pXJ"/>
-                            <constraint firstAttribute="trailing" secondItem="iwP-Z3-HiJ" secondAttribute="trailing" id="tY5-TZ-9Zc"/>
+                            <constraint firstItem="iSh-PN-U7Y" firstAttribute="leading" secondItem="Jo9-Rg-mX7" secondAttribute="leading" id="qhl-oO-7bZ"/>
                             <constraint firstItem="eSv-uk-CwL" firstAttribute="top" secondItem="LK0-V8-Cpu" secondAttribute="bottom" id="yml-yf-Mep"/>
                         </constraints>
                     </view>
