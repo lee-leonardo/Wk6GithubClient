@@ -11,6 +11,7 @@
 
 @interface NetworkController : NSObject
 
--(void)fetchResultsTest;
+-(void)fetchResultsRepoSample;
+-(void)fetchUserSample;
 
 @end

@@ -18,13 +18,21 @@ struct Github {
 
 @implementation NetworkController
 
--(void)fetchResultsTest {
+-(void)fetchResultsRepoSample {
 	NSData *sampleFile = [[NSData alloc] initWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"SearchRepoSample" ofType:@"json"]];
 	
 	NSMutableDictionary *dataDict = [NSJSONSerialization JSONObjectWithData:sampleFile options:0 error:nil];
 	
 	NSLog(@"%@", dataDict);
 	
+}
+
+-(void)fetchUserSample {
+	NSData *sampleFile = [[NSData alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"UserSingleSample" ofType:@"json"]];
+	
+	NSMutableDictionary *dataDict = [NSJSONSerialization JSONObjectWithData:sampleFile options:0 error:nil];
+	
+	NSLog(@"%@", dataDict);
 }
 
 @end
