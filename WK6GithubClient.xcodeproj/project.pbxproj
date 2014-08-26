@@ -146,9 +146,9 @@
 		387D3F6319ABD2350002AF3F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				387D3F6919ABD70F0002AF3F /* Network */,
 				387D3F4719ABD2230002AF3F /* ViewController.h */,
 				387D3F4819ABD2230002AF3F /* ViewController.m */,
+				387D3F6919ABD70F0002AF3F /* Network */,
 				387D3F6A19ABD7280002AF3F /* SearchViewController.h */,
 				387D3F6B19ABD7280002AF3F /* SearchViewController.m */,
 				387D3F6D19ABD75A0002AF3F /* UserViewController.h */,

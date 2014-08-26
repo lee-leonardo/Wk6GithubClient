@@ -7,8 +7,11 @@
 //
 
 #import "SearchViewController.h"
+#import "AppDelegate.h"
 
-@interface SearchViewController ()
+@interface SearchViewController () <UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic, strong) NSMutableArray *searchList;
+@property (nonatomic, strong) AppDelegate *appDelegate;
 
 @end
 
@@ -16,12 +19,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+	
+	
+	//This is only to debug the initialization of NetworkController
+	_appDelegate = [[UIApplication sharedApplication] delegate];
+	[[_appDelegate networkController] fetchResultsTest];
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Delegates
+#pragma mark UITableView
+-(UITableViewCell *)tableView:(UITableView *)tableView
+		cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchCell" forIndexPath:indexPath];
+	
+	return cell;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section {
+	return _searchList.count;
 }
 
 @end

@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+//Import the models.
 
 @interface NetworkController : NSObject
+
+-(void)fetchResultsTest;
 
 @end

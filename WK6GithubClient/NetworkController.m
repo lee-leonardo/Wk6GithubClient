@@ -8,9 +8,22 @@
 
 #import "NetworkController.h"
 
+struct Github {
+	
+};
+
+@interface NetworkController() <NSURLSessionTaskDelegate>
+
+@end
+
 @implementation NetworkController
 
-void fetchSearchResults() {
+-(void)fetchResultsTest {
+	NSData *sampleFile = [[NSData alloc] initWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"SearchRepoSample" ofType:@"json"]];
+	
+	NSMutableDictionary *dataDict = [NSJSONSerialization JSONObjectWithData:sampleFile options:0 error:nil];
+	
+	NSLog(@"%@", dataDict);
 	
 }
 

@@ -9,20 +9,21 @@
 #import "ViewController.h"
 
 @interface ViewController ()
-@property (nonatomic, strong) NSMutableArray *settings;
+
+@property (weak, nonatomic) IBOutlet UITableView *menuTableView;
+@property (nonatomic, strong) NSArray *menuItems;
 
 @end
 
 @implementation ViewController
-            
+
+#pragma mark - View
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning {
 	[super didReceiveMemoryWarning];
-	// Dispose of any resources that can be recreated.
 }
 
 @end

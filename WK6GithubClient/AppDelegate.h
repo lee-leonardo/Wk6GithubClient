@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
+#import "NetworkController.h"
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
@@ -20,6 +22,10 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
+
+
+#pragma mark - NetworkController...
+@property (strong, nonatomic) NetworkController * networkController;
 
 @end
 
