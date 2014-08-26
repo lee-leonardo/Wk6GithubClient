@@ -1,5 +1,6 @@
 # Xcode
 #
+Constants.m
 build/
 *.pbxuser
 !default.pbxuser
