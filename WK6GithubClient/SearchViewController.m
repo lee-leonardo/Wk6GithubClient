@@ -23,7 +23,7 @@
 	
 	//This is only to debug the initialization of NetworkController
 	_appDelegate = [[UIApplication sharedApplication] delegate];
-	[[_appDelegate networkController] fetchUserSample];
+	[[_appDelegate networkController] fetchResultsRepoSample];
 
 }
 

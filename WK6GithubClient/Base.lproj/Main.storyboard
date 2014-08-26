@@ -40,7 +40,6 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <scopeButtonTitles>
                                     <string>Repo</string>
-                                    <string>Code</string>
                                     <string>User</string>
                                 </scopeButtonTitles>
                             </searchBar>
