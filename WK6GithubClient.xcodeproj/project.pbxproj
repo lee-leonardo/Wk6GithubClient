@@ -15,7 +15,7 @@
 		387D3F5A19ABD2230002AF3F /* WK6GithubClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 387D3F5919ABD2230002AF3F /* WK6GithubClientTests.m */; };
 		387D3F6819ABD5180002AF3F /* NetworkController.m in Sources */ = {isa = PBXBuildFile; fileRef = 387D3F6719ABD5180002AF3F /* NetworkController.m */; };
 		387D3F6C19ABD7280002AF3F /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 387D3F6B19ABD7280002AF3F /* SearchViewController.m */; };
-		387D3F6F19ABD75A0002AF3F /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 387D3F6E19ABD75A0002AF3F /* UserViewController.m */; };
+		387D3F6F19ABD75A0002AF3F /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 387D3F6E19ABD75A0002AF3F /* ContactViewController.m */; };
 		387D3F7319ABD7EB0002AF3F /* RepoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 387D3F7219ABD7EB0002AF3F /* RepoViewController.m */; };
 		387D3F7519ABE4860002AF3F /* UserSingleSample.json in Resources */ = {isa = PBXBuildFile; fileRef = 387D3F7419ABE4860002AF3F /* UserSingleSample.json */; };
 		387D3F7819ABE4D50002AF3F /* UserSelfSample.json in Resources */ = {isa = PBXBuildFile; fileRef = 387D3F7719ABE4D50002AF3F /* UserSelfSample.json */; };
@@ -58,8 +58,8 @@
 		387D3F6719ABD5180002AF3F /* NetworkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkController.m; sourceTree = "<group>"; };
 		387D3F6A19ABD7280002AF3F /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		387D3F6B19ABD7280002AF3F /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
-		387D3F6D19ABD75A0002AF3F /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
-		387D3F6E19ABD75A0002AF3F /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
+		387D3F6D19ABD75A0002AF3F /* ContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
+		387D3F6E19ABD75A0002AF3F /* ContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
 		387D3F7119ABD7EB0002AF3F /* RepoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepoViewController.h; sourceTree = "<group>"; };
 		387D3F7219ABD7EB0002AF3F /* RepoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepoViewController.m; sourceTree = "<group>"; };
 		387D3F7419ABE4860002AF3F /* UserSingleSample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UserSingleSample.json; sourceTree = "<group>"; };
@@ -173,8 +173,8 @@
 				387D3F6919ABD70F0002AF3F /* Network */,
 				387D3F6A19ABD7280002AF3F /* SearchViewController.h */,
 				387D3F6B19ABD7280002AF3F /* SearchViewController.m */,
-				387D3F6D19ABD75A0002AF3F /* UserViewController.h */,
-				387D3F6E19ABD75A0002AF3F /* UserViewController.m */,
+				387D3F6D19ABD75A0002AF3F /* ContactViewController.h */,
+				387D3F6E19ABD75A0002AF3F /* ContactViewController.m */,
 				387D3F7119ABD7EB0002AF3F /* RepoViewController.h */,
 				387D3F7219ABD7EB0002AF3F /* RepoViewController.m */,
 			);
@@ -344,7 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				387D3F6F19ABD75A0002AF3F /* UserViewController.m in Sources */,
+				387D3F6F19ABD75A0002AF3F /* ContactViewController.m in Sources */,
 				387D3FA519AC2C3F0002AF3F /* Repository.m in Sources */,
 				387D3F9819AC25310002AF3F /* Repository+RepoExtension.m in Sources */,
 				387D3F4319ABD2230002AF3F /* AppDelegate.m in Sources */,

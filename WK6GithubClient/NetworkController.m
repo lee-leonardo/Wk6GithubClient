@@ -20,6 +20,7 @@
 
 @interface NetworkController() <NSURLSessionTaskDelegate>
 @property (nonatomic, strong) AppDelegate *appDelegate;
+@property (nonatomic, strong) NSURLSession *session;
 @property (nonatomic, strong) NSManagedObjectContext *dataContext;
 
 @end
@@ -31,10 +32,16 @@
 	self = [super init];
 	if (self) {
 		_appDelegate = [[UIApplication sharedApplication] delegate];
+		NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+		
 		_dataContext = _appDelegate.managedObjectContext;
 		if ( [[NSUserDefaults standardUserDefaults] stringForKey:@"GithubOAuth"]) {
 			_OAuthToken = [[NSUserDefaults standardUserDefaults] stringForKey:@"GithubOAuth"];
+			
+			[configuration setHTTPAdditionalHeaders:@{@"Authorization": [NSString stringWithFormat:@"token %@", _OAuthToken]}];
 		}
+		
+		_session = [NSURLSession sessionWithConfiguration:configuration];
 	}
 	return self;
 }
@@ -65,6 +72,9 @@
 	}
 }
 
+//
+//
+//
 -(void)fetchSearchUserResults {
 	NSData *sampleFile = [[NSData alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"SearchCodeSample" ofType:@"json"]];
 	NSDictionary *fileDictionary = [NSJSONSerialization JSONObjectWithData:sampleFile options:0 error:nil];
@@ -134,22 +144,72 @@
 
 #pragma mark - OAuthentication
 -(void)githubAuthenticate {
+	//Requests access to the github API.
 	NSString *urlString = [NSString stringWithFormat:kGithubOAuthURL,kGithubClientID,kGithubCallBackURI,@"user,repo"];
-	NSLog(@"%@", urlString);
+	//NSLog(@"githubAuthentication: %@", urlString);
 	
 	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
 	
 }
 
 -(void)handleCallbackURL:(NSURL *)url {
-	NSLog(@"url: %@", url);
+	//NSLog(@"HandleCallbackURL\nurl: %@", url);
+	
+	//Retrieval from the request for access.
+	NSString *query = url.query;
+	NSArray *components = [query componentsSeparatedByString:@"code="];
+	//NSLog(@"Query: %@\nComponents: %@", query, components);
+	
+	NSString *tempCode = [components lastObject];
+	//NSLog(@"Temp Code: %@", tempCode);
+	
+	//POST to get the OAuth token.
+	NSString *postForToken = [NSString stringWithFormat:@"client_id=%@&client_secret=%@&code=%@", kGithubClientID, kGithubClientSecret, tempCode];
+	
+	NSData *postData = [postForToken dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+	NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long) [postData length]];
+	NSMutableURLRequest *postRequest = [[NSMutableURLRequest alloc] init];
+	[postRequest setURL:[NSURL URLWithString:@"https://github.com/login/oauth/access_token"]];
+	[postRequest setHTTPMethod:@"POST"];
+	[postRequest setValue:postLength forHTTPHeaderField:@"Content-Length"];
+	[postRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+	[postRequest setHTTPBody:postData];
 	
 	
+	NSURLSessionDataTask *oAuthDataTask = [self.session dataTaskWithRequest:postRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+		
+		if (error) {
+			NSLog(@"Error:\n%@", error.localizedDescription);
+		} else {
+			NSLog(@"Token: %@", response);
+			
+			self.OAuthToken = [self oAuthTokenParse:data];
+			NSLog(@"OAuthToken: %@", self.OAuthToken);
+			
+			NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+			[configuration setHTTPAdditionalHeaders:@{@"Authorization": [NSString stringWithFormat:@"token %@", _OAuthToken]}];
+			_session = [NSURLSession sessionWithConfiguration:configuration];
+			
+			[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+				[[NSUserDefaults standardUserDefaults] setObject:_OAuthToken forKey:@"GithubOAuth"];
+			}];
+		}
+	}];
+	[oAuthDataTask resume];
+}
+
+-(NSString *)oAuthTokenParse:(NSData *)data {
 	
+	NSString *response = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+	NSArray *reponseComponents = [response componentsSeparatedByString:@"&"];
+	NSString *accessToken = [reponseComponents firstObject];
+	NSArray *accessArray = [accessToken componentsSeparatedByString:@"="];
 	
-	//This is to pass the OAuth token to NSUserDefaults.
-//	self.OAuthToken =
-	
+	//NSLog(@"response: %@", response);
+	//NSLog(@"components: %@", reponseComponents);
+	//NSLog(@"Authentication array: %@", accessArray);
+
+	return [accessArray lastObject];
 }
 
 

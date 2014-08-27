@@ -40,7 +40,7 @@
 
 -(BOOL)application:(UIApplication *)application
 	 handleOpenURL:(NSURL *)url {
-	
+	//NSLog(@"hancleOpenURL: %@", url);
 	[self.networkController handleCallbackURL: url];
 	
 	return YES;

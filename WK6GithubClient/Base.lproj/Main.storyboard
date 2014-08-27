@@ -72,10 +72,10 @@
             </objects>
             <point key="canvasLocation" x="1245" y="-1116"/>
         </scene>
-        <!--User View Controller-->
+        <!--Contact View Controller-->
         <scene sceneID="nxu-hA-KcK">
             <objects>
-                <viewController id="aHa-g8-0kj" customClass="UserViewController" sceneMemberID="viewController">
+                <viewController id="aHa-g8-0kj" customClass="ContactViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZeK-Tj-C2S"/>
                         <viewControllerLayoutGuide type="bottom" id="SSM-EJ-LC4"/>
@@ -103,6 +103,10 @@
                                         </view>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="aHa-g8-0kj" id="zbB-Q8-6ho"/>
+                                    <outlet property="delegate" destination="aHa-g8-0kj" id="QEV-h4-ppl"/>
+                                </connections>
                             </collectionView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="cjZ-Dw-TGG">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
@@ -178,6 +182,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="242-SF-BEB" id="WBP-SE-LaI"/>
+                                    <outlet property="delegate" destination="242-SF-BEB" id="6zQ-dC-Rec"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

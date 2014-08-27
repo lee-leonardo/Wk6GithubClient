@@ -26,20 +26,13 @@
 
 -(void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
-	
-	//if (![[NSUserDefaults standardUserDefaults] stringForKey:@"GithubOAuth"]) {
+	if (![[NSUserDefaults standardUserDefaults] stringForKey:@"GithubOAuth"]) {
 		[[_appDelegate networkController] githubAuthenticate];
-	//}
-	
-//	self.appDelegate
+	}
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear:animated];
-	
-	if (![[NSUserDefaults standardUserDefaults] stringForKey:@"GithubOAuth"]) {
-		[[NSUserDefaults standardUserDefaults] setObject:[[_appDelegate networkController] OAuthToken] forKey:@"GithubOAuth"];
-	}
 }
 
 - (void)didReceiveMemoryWarning {
