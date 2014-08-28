@@ -29,7 +29,7 @@
 		387D3FA219AC2C3F0002AF3F /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 387D3FA119AC2C3F0002AF3F /* User.m */; };
 		387D3FA519AC2C3F0002AF3F /* Repository.m in Sources */ = {isa = PBXBuildFile; fileRef = 387D3FA419AC2C3F0002AF3F /* Repository.m */; };
 		387D3FA819AC2C3F0002AF3F /* Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 387D3FA719AC2C3F0002AF3F /* Search.m */; };
-		38AFE20E19AD21E200971D8F /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AFE20D19AD21E200971D8F /* Constants.m */; };
+		A71400B219AF141E00E07F4F /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = A71400B119AF141E00E07F4F /* Constants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,7 +84,7 @@
 		387D3FA619AC2C3F0002AF3F /* Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Search.h; sourceTree = "<group>"; };
 		387D3FA719AC2C3F0002AF3F /* Search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Search.m; sourceTree = "<group>"; };
 		38AFE20C19AD21E200971D8F /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		38AFE20D19AD21E200971D8F /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		A71400B119AF141E00E07F4F /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,7 +130,7 @@
 				387D3F4119ABD2230002AF3F /* AppDelegate.h */,
 				387D3F4219ABD2230002AF3F /* AppDelegate.m */,
 				38AFE20C19AD21E200971D8F /* Constants.h */,
-				38AFE20D19AD21E200971D8F /* Constants.m */,
+				A71400B119AF141E00E07F4F /* Constants.m */,
 				387D3F6519ABD2400002AF3F /* Model */,
 				387D3F9C19AC256C0002AF3F /* Model Categories */,
 				387D3F6319ABD2350002AF3F /* Controller */,
@@ -351,7 +351,7 @@
 				387D3F4619ABD2230002AF3F /* WK6GithubClient.xcdatamodeld in Sources */,
 				387D3F7319ABD7EB0002AF3F /* RepoViewController.m in Sources */,
 				387D3F4019ABD2230002AF3F /* main.m in Sources */,
-				38AFE20E19AD21E200971D8F /* Constants.m in Sources */,
+				A71400B219AF141E00E07F4F /* Constants.m in Sources */,
 				387D3F9B19AC25620002AF3F /* Search+SearchExtension.m in Sources */,
 				387D3FA819AC2C3F0002AF3F /* Search.m in Sources */,
 				387D3FA219AC2C3F0002AF3F /* User.m in Sources */,

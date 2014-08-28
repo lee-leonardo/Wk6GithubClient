@@ -16,6 +16,7 @@
 
 -(void)githubAuthenticate;
 -(void)handleCallbackURL:(NSURL *)url;
+-(void)repoParse;
 
 -(void)fetchResultsRepoSample;
 -(void)fetchUserData;

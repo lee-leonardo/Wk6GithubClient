@@ -20,20 +20,7 @@
 	// Override point for customization after application launch.
 	
 	_networkController = [[NetworkController alloc] init];
-	//Implement things for NSUserDefaults.
-	
-	
-//	UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Authorization"
-//																			  message:@"This app requires githubAuthentication"
-//																	   preferredStyle:UIAlertControllerStyleAlert];
-//	UIAlertAction *okay = [UIAlertAction actionWithTitle:@"Okay" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-//		[alertController dismissViewControllerAnimated:YES completion:nil];
-//	}];
-//	[alertController addAction:okay];
-//	UIAlertController * __weak alert = alertController;
-//	[presentViewController:alert animated:YES completion:nil];
-	
-	
+	//[[NSNotificationCenter defaultCenter] addObserver:_networkController selector:<#(SEL)#> name:@"GetRepo" object:nil];
 
 	return YES;
 }

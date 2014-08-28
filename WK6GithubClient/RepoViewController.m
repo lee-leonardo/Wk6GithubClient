@@ -10,13 +10,32 @@
 
 @interface RepoViewController () <UITableViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UITableView *repoTableView;
+@property (strong, nonatomic) NSMutableArray *repoData;
+
 @end
 
 @implementation RepoViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+	
+	_repoData = [[NSMutableArray alloc] init];
+	
+}
+-(void)viewDidAppear:(BOOL)animated {
+	[super viewDidAppear:animated];
+	
+	[[NSNotificationCenter defaultCenter] addObserverForName:@"ReceiveRepos" object:self queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+		//note.userInfo
+		
+		[_repoTableView reloadData];
+	}];
+	
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"GetRepos" object:nil];
+}
+-(void)viewWillDisappear:(BOOL)animated {
+	[[NSNotificationCenter defaultCenter] removeObserver:@"ReceiveRepos"];
 }
 
 
@@ -26,11 +45,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+
 #pragma mark - Delegate
 #pragma mark UITableView
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section{
-	return 10;
+	return _repoData.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView

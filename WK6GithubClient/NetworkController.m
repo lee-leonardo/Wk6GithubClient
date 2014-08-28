@@ -32,6 +32,7 @@
 	self = [super init];
 	if (self) {
 		_appDelegate = [[UIApplication sharedApplication] delegate];
+		_OAuthToken = [[NSString alloc] init];
 		NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
 		
 		_dataContext = _appDelegate.managedObjectContext;
@@ -50,6 +51,41 @@
 //	NSURLSession *session = [NSURLSession sharedSession] dataTaskWithURL:<#(NSURL *)#> completionHandler:<#^(NSData *data, NSURLResponse *response, NSError *error)completionHandler#>
 
 }
+
+-(void)fetchRepos {
+	NSString *urlString = @"https://api.github.com/user/repos";
+	NSURL *url = [[NSURL alloc] initFileURLWithPath:urlString];
+	
+	NSURLSessionDataTask *fetchRepo = [self.session dataTaskWithURL:url
+												  completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+													  if (error) {
+														  NSLog(@"%@", error.localizedDescription);
+														  
+													  } else {
+														  if ( [response respondsToSelector:@selector(statusCode)]) {
+															  NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
+															  NSInteger responseCode = [httpResponse statusCode];
+															  switch (responseCode) {
+																  case 200:
+																	  NSLog(@"Alright.");
+																	  [self repoParse:data];
+																	  break;
+																	  
+																  default:
+																	  break;
+															  }
+														  }
+													  }
+												  }];
+	[fetchRepo resume];
+	
+}
+									   
+
+-(void)repoParse:(NSData *)data {
+	NSLog(@"Repo data: %@", data);
+}
+
 
 #pragma mark - Fetching Samples
 -(void)fetchSearchRepoResults {
@@ -72,9 +108,7 @@
 	}
 }
 
-//
-//
-//
+#pragma mark
 -(void)fetchSearchUserResults {
 	NSData *sampleFile = [[NSData alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"SearchCodeSample" ofType:@"json"]];
 	NSDictionary *fileDictionary = [NSJSONSerialization JSONObjectWithData:sampleFile options:0 error:nil];
@@ -88,10 +122,6 @@
 	}
 
 }
-
-//
-//
-//
 -(void)fetchResultsRepoSample {
 	NSData *sampleFile = [[NSData alloc] initWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"SearchRepoSample" ofType:@"json"]];
 	
@@ -113,17 +143,9 @@
 	NSLog(@"login: %@\nRepo: %@\nID: %@", owner, repoFullName, idNumber);
 	NSLog(@"Language: %@\nLink: %@", language, link);
 	NSLog(@"RepoConcat: %@", repoName);
-	
-	
-	//Put the data into an array of dictionaries for the time being, from that develop the objects later.
-	
 }
 
-
-//
-//It is good to note that the user parsing works for the application's user and the search user information.
-//
-
+//I have a better version of this I need to grab from my other file.
 -(void)fetchUserData {
 	NSData *sampleFile = [[NSData alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"UserSingleSample" ofType:@"json"]];
 	
