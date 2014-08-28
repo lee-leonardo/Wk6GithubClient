@@ -26,25 +26,22 @@
 -(void)viewDidAppear:(BOOL)animated {
 	[super viewDidAppear:animated];
 	
-	[[NSNotificationCenter defaultCenter] addObserverForName:@"ReceiveRepos" object:self queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
-		//note.userInfo
-		
-		[_repoTableView reloadData];
-	}];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(@"receiveRepos:") name:@"ReceiveRepos" object:nil];
 	
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"GetRepos" object:nil];
 }
 -(void)viewWillDisappear:(BOOL)animated {
 	[[NSNotificationCenter defaultCenter] removeObserver:@"ReceiveRepos"];
 }
-
-
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark
+-(void)receiveRepos:(sender: NetworkController) {
+	
+}
 
 
 #pragma mark - Delegate
