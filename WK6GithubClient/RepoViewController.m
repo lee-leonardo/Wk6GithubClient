@@ -7,6 +7,8 @@
 //
 
 #import "RepoViewController.h"
+#import "AppDelegate.h"
+#import "NetworkController.h"
 
 @interface RepoViewController () <UITableViewDataSource>
 
@@ -25,13 +27,25 @@
 }
 -(void)viewDidAppear:(BOOL)animated {
 	[super viewDidAppear:animated];
-	
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(@"receiveRepos:") name:@"ReceiveRepos" object:nil];
-	
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"GetRepos" object:nil];
+    
+    AppDelegate *appDelegate =  [[UIApplication sharedApplication] delegate];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveRepos:) name:@"ReceiveRepos" object:nil];
+    
+    //How?
+    [[NSNotificationCenter defaultCenter] addObserver:[appDelegate networkController] selector:@selector(fetchRepos:) name:@"GetRepo" object:nil];
+
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"GetRepos" object:nil];
+    }];
+    
+    [[appDelegate networkController] fetchRepos:self];
+    
 }
 -(void)viewWillDisappear:(BOOL)animated {
 	[[NSNotificationCenter defaultCenter] removeObserver:@"ReceiveRepos"];
+    [[NSNotificationCenter defaultCenter] removeObserver:@"GetRepo"];
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -39,10 +53,9 @@
 }
 
 #pragma mark
--(void)receiveRepos:(sender: NetworkController) {
-	
+-(void)receiveRepos:(id)sender {
+    NSLog(@"Fired!");
 }
-
 
 #pragma mark - Delegate
 #pragma mark UITableView

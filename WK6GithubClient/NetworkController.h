@@ -14,9 +14,11 @@
 
 @property (nonatomic, strong) NSString *OAuthToken;
 
+-(void)fetchRepos:(id)sender;
+
+
 -(void)githubAuthenticate;
 -(void)handleCallbackURL:(NSURL *)url;
--(void)repoParse;
 
 -(void)fetchResultsRepoSample;
 -(void)fetchUserData;

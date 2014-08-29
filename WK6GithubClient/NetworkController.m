@@ -52,7 +52,10 @@
 
 }
 
--(void)fetchRepos {
+#pragma mark - Repository (Self)
+-(void)fetchRepos:(id)sender {
+    NSLog(@"Fetch called");
+    
 	NSString *urlString = @"https://api.github.com/user/repos";
 	NSURL *url = [[NSURL alloc] initFileURLWithPath:urlString];
 	
@@ -72,6 +75,7 @@
 																	  break;
 																	  
 																  default:
+                                                                      NSLog(@"somethings wrong");
 																	  break;
 															  }
 														  }
@@ -84,9 +88,13 @@
 
 -(void)repoParse:(NSData *)data {
 	NSLog(@"Repo data: %@", data);
+    
+    //NSMutableDictionary *parseDict = [[NSMutableDictionary alloc] init];
+    //[[NSNotificationCenter defaultCenter] postNotificationName:@"ReceiveRepos" object:self userInfo:parseDict];
 }
 
 
+#pragma mark -
 #pragma mark - Fetching Samples
 -(void)fetchSearchRepoResults {
 	NSData *sampleFile = [[NSData alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"SearchRepoSample" ofType:@"json"]];
@@ -206,7 +214,7 @@
 			NSLog(@"Token: %@", response);
 			
 			self.OAuthToken = [self oAuthTokenParse:data];
-			NSLog(@"OAuthToken: %@", self.OAuthToken);
+			//NSLog(@"OAuthToken: %@", self.OAuthToken);
 			
 			NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
 			[configuration setHTTPAdditionalHeaders:@{@"Authorization": [NSString stringWithFormat:@"token %@", _OAuthToken]}];
@@ -214,6 +222,8 @@
 			
 			[[NSOperationQueue mainQueue] addOperationWithBlock:^{
 				[[NSUserDefaults standardUserDefaults] setObject:_OAuthToken forKey:@"GithubOAuth"];
+                
+                //[self fetchRepos:self];
 			}];
 		}
 	}];

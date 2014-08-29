@@ -20,7 +20,6 @@
 	// Override point for customization after application launch.
 	
 	_networkController = [[NetworkController alloc] init];
-	//[[NSNotificationCenter defaultCenter] addObserver:_networkController selector:<#(SEL)#> name:@"GetRepo" object:nil];
 
 	return YES;
 }

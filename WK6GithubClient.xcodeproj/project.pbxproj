@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		385F759719AFFD1A0042DBC8 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 385F759619AFFD1A0042DBC8 /* Constants.m */; };
 		387D3F4019ABD2230002AF3F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 387D3F3F19ABD2230002AF3F /* main.m */; };
 		387D3F4319ABD2230002AF3F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 387D3F4219ABD2230002AF3F /* AppDelegate.m */; };
 		387D3F4619ABD2230002AF3F /* WK6GithubClient.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 387D3F4419ABD2230002AF3F /* WK6GithubClient.xcdatamodeld */; };
@@ -29,7 +30,6 @@
 		387D3FA219AC2C3F0002AF3F /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 387D3FA119AC2C3F0002AF3F /* User.m */; };
 		387D3FA519AC2C3F0002AF3F /* Repository.m in Sources */ = {isa = PBXBuildFile; fileRef = 387D3FA419AC2C3F0002AF3F /* Repository.m */; };
 		387D3FA819AC2C3F0002AF3F /* Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 387D3FA719AC2C3F0002AF3F /* Search.m */; };
-		A71400B219AF141E00E07F4F /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = A71400B119AF141E00E07F4F /* Constants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		385F759619AFFD1A0042DBC8 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		387D3F3A19ABD2230002AF3F /* WK6GithubClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WK6GithubClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		387D3F3E19ABD2230002AF3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		387D3F3F19ABD2230002AF3F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -84,7 +85,6 @@
 		387D3FA619AC2C3F0002AF3F /* Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Search.h; sourceTree = "<group>"; };
 		387D3FA719AC2C3F0002AF3F /* Search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Search.m; sourceTree = "<group>"; };
 		38AFE20C19AD21E200971D8F /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		A71400B119AF141E00E07F4F /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,7 +130,7 @@
 				387D3F4119ABD2230002AF3F /* AppDelegate.h */,
 				387D3F4219ABD2230002AF3F /* AppDelegate.m */,
 				38AFE20C19AD21E200971D8F /* Constants.h */,
-				A71400B119AF141E00E07F4F /* Constants.m */,
+				385F759619AFFD1A0042DBC8 /* Constants.m */,
 				387D3F6519ABD2400002AF3F /* Model */,
 				387D3F9C19AC256C0002AF3F /* Model Categories */,
 				387D3F6319ABD2350002AF3F /* Controller */,
@@ -351,7 +351,7 @@
 				387D3F4619ABD2230002AF3F /* WK6GithubClient.xcdatamodeld in Sources */,
 				387D3F7319ABD7EB0002AF3F /* RepoViewController.m in Sources */,
 				387D3F4019ABD2230002AF3F /* main.m in Sources */,
-				A71400B219AF141E00E07F4F /* Constants.m in Sources */,
+				385F759719AFFD1A0042DBC8 /* Constants.m in Sources */,
 				387D3F9B19AC25620002AF3F /* Search+SearchExtension.m in Sources */,
 				387D3FA819AC2C3F0002AF3F /* Search.m in Sources */,
 				387D3FA219AC2C3F0002AF3F /* User.m in Sources */,
