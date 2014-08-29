@@ -57,7 +57,7 @@
     NSLog(@"Fetch called");
     
 	NSString *urlString = @"https://api.github.com/user/repos";
-	NSURL *url = [[NSURL alloc] initFileURLWithPath:urlString];
+    NSURL *url = [[NSURL alloc] initWithString:urlString];
 	
 	NSURLSessionDataTask *fetchRepo = [self.session dataTaskWithURL:url
 												  completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -83,14 +83,20 @@
 												  }];
 	[fetchRepo resume];
 	
-}
-									   
+}						   
 
 -(void)repoParse:(NSData *)data {
-	NSLog(@"Repo data: %@", data);
+	//NSLog(@"Repo data: %@", data);
+    NSMutableArray *repoDataArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    NSMutableDictionary *parseDict = [[NSMutableDictionary alloc] init];
     
-    //NSMutableDictionary *parseDict = [[NSMutableDictionary alloc] init];
-    //[[NSNotificationCenter defaultCenter] postNotificationName:@"ReceiveRepos" object:self userInfo:parseDict];
+    for (NSMutableDictionary *repo in repoDataArray) {
+        //Parse in model object.
+        NSLog(@"Repo Fullname: %@", repo[@"full_name"]);
+        NSLog(@"Repo Language: %@", repo[@"language"]);
+    }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReceiveRepos" object:self userInfo:parseDict];
 }
 
 

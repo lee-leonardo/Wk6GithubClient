@@ -32,19 +32,11 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveRepos:) name:@"ReceiveRepos" object:nil];
     
-    //How?
-    [[NSNotificationCenter defaultCenter] addObserver:[appDelegate networkController] selector:@selector(fetchRepos:) name:@"GetRepo" object:nil];
-
-    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"GetRepos" object:nil];
-    }];
-    
     [[appDelegate networkController] fetchRepos:self];
     
 }
 -(void)viewWillDisappear:(BOOL)animated {
 	[[NSNotificationCenter defaultCenter] removeObserver:@"ReceiveRepos"];
-    [[NSNotificationCenter defaultCenter] removeObserver:@"GetRepo"];
     
 }
 - (void)didReceiveMemoryWarning {
@@ -55,6 +47,7 @@
 #pragma mark
 -(void)receiveRepos:(id)sender {
     NSLog(@"Fired!");
+    
 }
 
 #pragma mark - Delegate

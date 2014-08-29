@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3845BBF719B11478002DF386 /* RepoArray.json in Resources */ = {isa = PBXBuildFile; fileRef = 3845BBF619B11478002DF386 /* RepoArray.json */; };
 		385F759719AFFD1A0042DBC8 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 385F759619AFFD1A0042DBC8 /* Constants.m */; };
 		387D3F4019ABD2230002AF3F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 387D3F3F19ABD2230002AF3F /* main.m */; };
 		387D3F4319ABD2230002AF3F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 387D3F4219ABD2230002AF3F /* AppDelegate.m */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3845BBF619B11478002DF386 /* RepoArray.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RepoArray.json; sourceTree = "<group>"; };
 		385F759619AFFD1A0042DBC8 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		387D3F3A19ABD2230002AF3F /* WK6GithubClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WK6GithubClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		387D3F3E19ABD2230002AF3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				387D3F7719ABE4D50002AF3F /* UserSelfSample.json */,
 				387D3F7919ABE5290002AF3F /* SearchRepoSample.json */,
 				387D3F7F19ABE5E50002AF3F /* SearchUserSample.json */,
+				3845BBF619B11478002DF386 /* RepoArray.json */,
 			);
 			name = JSON;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				387D3F4C19ABD2230002AF3F /* Main.storyboard in Resources */,
 				387D3F7519ABE4860002AF3F /* UserSingleSample.json in Resources */,
 				387D3F4E19ABD2230002AF3F /* Images.xcassets in Resources */,
+				3845BBF719B11478002DF386 /* RepoArray.json in Resources */,
 				387D3F8019ABE5E50002AF3F /* SearchUserSample.json in Resources */,
 				387D3F7A19ABE5290002AF3F /* SearchRepoSample.json in Resources */,
 			);
