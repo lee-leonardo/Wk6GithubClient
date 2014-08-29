@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
+
 //Import the models.
 
 @interface NetworkController : NSObject
@@ -15,8 +15,6 @@
 @property (nonatomic, strong) NSString *OAuthToken;
 
 -(void)fetchRepos:(id)sender;
-
-
 -(void)githubAuthenticate;
 -(void)handleCallbackURL:(NSURL *)url;
 

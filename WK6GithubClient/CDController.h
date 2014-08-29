@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Repository+RepoExtension.h"
+
 
 @interface CDController : NSObject
+
+-(void)repoParse:(NSData *)data;
+
 
 @end

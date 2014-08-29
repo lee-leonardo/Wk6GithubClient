@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Leonardo Lee. All rights reserved.
 //
 
-#import <CoreData/CoreData.h>
 #import "NetworkController.h"
 #import "Repository+RepoExtension.h"
 #import "AppDelegate.h"
@@ -48,11 +47,6 @@
 	return self;
 }
 
--(void)sessionBasic {
-//	NSURLSession *session = [NSURLSession sharedSession] dataTaskWithURL:<#(NSURL *)#> completionHandler:<#^(NSData *data, NSURLResponse *response, NSError *error)completionHandler#>
-
-}
-
 #pragma mark - Repository (Self)
 -(void)fetchRepos:(id)sender {
     NSLog(@"Fetch called");
@@ -72,7 +66,7 @@
 															  switch (responseCode) {
 																  case 200:
 																	  NSLog(@"Alright.");
-																	  [self repoParse:data];
+																	  [[_appDelegate dataController] repoParse:data];
 																	  break;
 																	  
 																  default:
@@ -84,19 +78,7 @@
 												  }];
 	[fetchRepo resume];
 	
-}						   
-
--(void)repoParse:(NSData *)data {
-	//NSLog(@"Repo data: %@", data);
-    NSArray *repoDataArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-    [Repository generateRepoData:repoDataArray withContext:_dataContext];
-    
-    
-    //Below Subject to change:
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReceiveRepos" object:self];
 }
-
-
 
 #pragma mark - Fetching Samples
 -(void)fetchSearchRepoResults {
@@ -118,8 +100,6 @@
 
 	}
 }
-
-#pragma mark
 -(void)fetchSearchUserResults {
 	NSData *sampleFile = [[NSData alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"SearchCodeSample" ofType:@"json"]];
 	NSDictionary *fileDictionary = [NSJSONSerialization JSONObjectWithData:sampleFile options:0 error:nil];

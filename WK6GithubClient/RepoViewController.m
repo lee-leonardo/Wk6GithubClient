@@ -12,6 +12,7 @@
 
 @interface RepoViewController () <UITableViewDataSource>
 
+@property (strong, nonatomic) AppDelegate *appDelegate;
 @property (weak, nonatomic) IBOutlet UITableView *repoTableView;
 @property (strong, nonatomic) NSMutableArray *repoData;
 
@@ -21,19 +22,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	
+    _appDelegate =  [[UIApplication sharedApplication] delegate];
 	_repoData = [[NSMutableArray alloc] init];
 	
 }
 
 -(void)viewDidAppear:(BOOL)animated {
 	[super viewDidAppear:animated];
-    
-    AppDelegate *appDelegate =  [[UIApplication sharedApplication] delegate];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveRepos:) name:@"ReceiveRepos" object:nil];
     
-    [[appDelegate networkController] fetchRepos:self];
+    [[_appDelegate networkController] fetchRepos:self];
     
 }
 
@@ -49,6 +47,9 @@
 #pragma mark
 -(void)receiveRepos:(NSNotification *)sender {
     NSLog(@"Fired!");
+    
+//    [[_appDelegate dataController] ];
+    
     [self.repoTableView reloadData];
 }
 
