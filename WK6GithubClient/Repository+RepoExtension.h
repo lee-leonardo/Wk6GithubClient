@@ -9,5 +9,6 @@
 #import "Repository.h"
 
 @interface Repository (RepoExtension)
++(void)generateRepoData:(NSArray *)repoList withContext:(NSManagedObjectContext *)context;
 
 @end

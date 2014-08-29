@@ -20,6 +20,7 @@
 	// Override point for customization after application launch.
 	
 	_networkController = [[NetworkController alloc] init];
+    _dataController = [[CDController alloc] init];
 
 	return YES;
 }

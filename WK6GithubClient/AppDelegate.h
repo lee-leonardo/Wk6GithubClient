@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 
 #import "NetworkController.h"
+#import "CDController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -25,7 +26,8 @@
 
 
 #pragma mark - NetworkController...
-@property (strong, nonatomic) NetworkController * networkController;
+@property (strong, nonatomic) NetworkController *networkController;
+@property (strong, nonatomic) CDController *dataController;
 
 @end
 

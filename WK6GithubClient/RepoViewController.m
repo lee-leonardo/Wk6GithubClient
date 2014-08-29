@@ -25,6 +25,7 @@
 	_repoData = [[NSMutableArray alloc] init];
 	
 }
+
 -(void)viewDidAppear:(BOOL)animated {
 	[super viewDidAppear:animated];
     
@@ -35,19 +36,20 @@
     [[appDelegate networkController] fetchRepos:self];
     
 }
+
 -(void)viewWillDisappear:(BOOL)animated {
 	[[NSNotificationCenter defaultCenter] removeObserver:@"ReceiveRepos"];
     
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark
--(void)receiveRepos:(id)sender {
+-(void)receiveRepos:(NSNotification *)sender {
     NSLog(@"Fired!");
-    
+    [self.repoTableView reloadData];
 }
 
 #pragma mark - Delegate

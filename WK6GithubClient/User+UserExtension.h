@@ -10,7 +10,7 @@
 
 @interface User (UserExtension)
 
-//+(NSMutableArray *)parseJSONWithDictionary:(NSDictionary *)inputData;
++(NSMutableArray *)parseJSONWithDictionary:(NSDictionary *)inputData;
 
 
 @end

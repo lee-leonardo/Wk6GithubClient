@@ -2,7 +2,7 @@
 //  User.m
 //  WK6GithubClient
 //
-//  Created by Leonardo Lee on 8/25/14.
+//  Created by Leonardo Lee on 8/29/14.
 //  Copyright (c) 2014 Leonardo Lee. All rights reserved.
 //
 
@@ -12,14 +12,14 @@
 @implementation User
 
 @dynamic email;
-@dynamic login;
-@dynamic link;
-@dynamic publicRepos;
 @dynamic followersURL;
 @dynamic followingURL;
-@dynamic subscriptionsURL;
-@dynamic organizationsURL;
-@dynamic repos;
+@dynamic link;
+@dynamic login;
 @dynamic name;
+@dynamic organizationsURL;
+@dynamic publicRepos;
+@dynamic repos;
+@dynamic subscriptionsURL;
 
 @end

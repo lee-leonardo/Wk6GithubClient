@@ -8,6 +8,7 @@
 
 #import <CoreData/CoreData.h>
 #import "NetworkController.h"
+#import "Repository+RepoExtension.h"
 #import "AppDelegate.h"
 #import "Constants.h"
 
@@ -87,20 +88,16 @@
 
 -(void)repoParse:(NSData *)data {
 	//NSLog(@"Repo data: %@", data);
-    NSMutableArray *repoDataArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-    NSMutableDictionary *parseDict = [[NSMutableDictionary alloc] init];
+    NSArray *repoDataArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    [Repository generateRepoData:repoDataArray withContext:_dataContext];
     
-    for (NSMutableDictionary *repo in repoDataArray) {
-        //Parse in model object.
-        NSLog(@"Repo Fullname: %@", repo[@"full_name"]);
-        NSLog(@"Repo Language: %@", repo[@"language"]);
-    }
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReceiveRepos" object:self userInfo:parseDict];
+    //Below Subject to change:
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReceiveRepos" object:self];
 }
 
 
-#pragma mark -
+
 #pragma mark - Fetching Samples
 -(void)fetchSearchRepoResults {
 	NSData *sampleFile = [[NSData alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"SearchRepoSample" ofType:@"json"]];

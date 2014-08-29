@@ -7,7 +7,30 @@
 //
 
 #import "Repository+RepoExtension.h"
+#import <CoreData/CoreData.h>
 
 @implementation Repository (RepoExtension)
-//billEmail, company, location, name, pubEmail
+//
+
+
++(void)generateRepoData:(NSArray *)repoList withContext:(NSManagedObjectContext *)context {
+
+    for (NSDictionary *repo in repoList) {
+        //NSLog(@"Repo data: %@", repo);
+        //NSLog(@"Fullname: %@", repo[@"full_name"]);
+        //NSLog(@"Language: %@", repo[@"language"]);
+
+        Repository *repository = [NSEntityDescription insertNewObjectForEntityForName:@"Repository" inManagedObjectContext:context];
+        repository.login = repo[@"owner"][@"login"];
+        repository.fullName = repo[@"full_name"];
+        repository.language = repo[@"language"];
+        repository.link = repo[@"html_url"]; //For right now, it is a html url.
+        
+        NSLog(@"Login: %@" ,repository.login);
+
+    }
+    
+}
+
+
 @end

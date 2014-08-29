@@ -2,7 +2,7 @@
 //  Organization.m
 //  WK6GithubClient
 //
-//  Created by Leonardo Lee on 8/25/14.
+//  Created by Leonardo Lee on 8/29/14.
 //  Copyright (c) 2014 Leonardo Lee. All rights reserved.
 //
 
@@ -11,8 +11,8 @@
 
 @implementation Organization
 
-@dynamic type;
-@dynamic sort;
 @dynamic direction;
+@dynamic sort;
+@dynamic type;
 
 @end

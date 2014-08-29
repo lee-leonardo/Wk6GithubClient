@@ -11,16 +11,11 @@
 @implementation User (UserExtension)
 
 //bio, blog, company, email, hireable, location, name
--(void)queryByCompany:(NSString *)company {
-	
++(NSMutableArray *)parseJSONWithDictionary:(NSDictionary *)inputData {
+	NSMutableArray *users = [[NSMutableArray alloc] init];
+    
+    
+	return users;
 }
--(void)queryByName:(NSString *)name andEmail:(NSString *)email {
-	
-}
-
-//+(NSMutableArray *)parseJSONWithDictionary:(NSDictionary *)inputData {
-//	NSMutableArray *users = [[NSMutableArray alloc] init];
-//	return users;
-//}
 
 @end
