@@ -10,7 +10,6 @@
 		3845BBF719B11478002DF386 /* RepoArray.json in Resources */ = {isa = PBXBuildFile; fileRef = 3845BBF619B11478002DF386 /* RepoArray.json */; };
 		3845BBFA19B1280F002DF386 /* Organization.m in Sources */ = {isa = PBXBuildFile; fileRef = 3845BBF919B1280F002DF386 /* Organization.m */; };
 		3845BBFD19B1280F002DF386 /* Repository.m in Sources */ = {isa = PBXBuildFile; fileRef = 3845BBFC19B1280F002DF386 /* Repository.m */; };
-		3845BC0019B12810002DF386 /* Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 3845BBFF19B12810002DF386 /* Search.m */; };
 		3845BC0319B12810002DF386 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3845BC0219B12810002DF386 /* User.m */; };
 		3845BC0619B1307C002DF386 /* CDController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3845BC0519B1307C002DF386 /* CDController.m */; };
 		385F759719AFFD1A0042DBC8 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 385F759619AFFD1A0042DBC8 /* Constants.m */; };
@@ -50,8 +49,6 @@
 		3845BBF919B1280F002DF386 /* Organization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Organization.m; sourceTree = "<group>"; };
 		3845BBFB19B1280F002DF386 /* Repository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Repository.h; sourceTree = "<group>"; };
 		3845BBFC19B1280F002DF386 /* Repository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Repository.m; sourceTree = "<group>"; };
-		3845BBFE19B12810002DF386 /* Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Search.h; sourceTree = "<group>"; };
-		3845BBFF19B12810002DF386 /* Search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Search.m; sourceTree = "<group>"; };
 		3845BC0119B12810002DF386 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		3845BC0219B12810002DF386 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		3845BC0419B1307C002DF386 /* CDController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDController.h; sourceTree = "<group>"; };
@@ -201,8 +198,6 @@
 				387D3F4419ABD2230002AF3F /* WK6GithubClient.xcdatamodeld */,
 				3845BC0119B12810002DF386 /* User.h */,
 				3845BC0219B12810002DF386 /* User.m */,
-				3845BBFE19B12810002DF386 /* Search.h */,
-				3845BBFF19B12810002DF386 /* Search.m */,
 				3845BBFB19B1280F002DF386 /* Repository.h */,
 				3845BBFC19B1280F002DF386 /* Repository.m */,
 				3845BBF819B1280F002DF386 /* Organization.h */,
@@ -367,7 +362,6 @@
 				387D3F9219AC24E80002AF3F /* Organization+OrganizationExtension.m in Sources */,
 				387D3F9519AC24FF0002AF3F /* User+UserExtension.m in Sources */,
 				387D3F6C19ABD7280002AF3F /* SearchViewController.m in Sources */,
-				3845BC0019B12810002DF386 /* Search.m in Sources */,
 				387D3F6819ABD5180002AF3F /* NetworkController.m in Sources */,
 				3845BBFA19B1280F002DF386 /* Organization.m in Sources */,
 			);

@@ -40,17 +40,13 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)reloadRepos {
-    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Repository"];
-    NSError *error;
-    
-    
-    
-    if (error) {
-        NSLog(@"%@", error.localizedDescription);
-    }
-    
-}
+//-(void)reloadRepos {
+//    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Repository"];
+//    NSError *error;
+//    if (error) {
+//        NSLog(@"%@", error.localizedDescription);
+//    }
+//}
 
 #pragma mark - Delegates
 #pragma mark UITableView

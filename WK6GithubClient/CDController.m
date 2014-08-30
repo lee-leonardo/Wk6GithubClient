@@ -29,11 +29,10 @@
     return self;
 }
 
-#pragma mark -
+#pragma mark - Request and Sort
 -(void)requestDataOfModelType:(NSString *)model {
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:model];
-//    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:<#(NSString *)#> ascending:YES];
-//    [request sortDescriptors] = sort;
+    [request.sortDescriptors arrayByAddingObject:[self sortType:model]];
     
     _resultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                              managedObjectContext:_dataContext
@@ -42,7 +41,17 @@
     _resultsController.delegate = self;
 }
 
-#pragma mark - Parse Method
+-(NSSortDescriptor *)sortType:(NSString *)model {
+    if ([model isEqualToString:@"Repository"]) {
+        return [NSSortDescriptor sortDescriptorWithKey:@"fullName" ascending:YES];
+    } else if ([model isEqualToString:@"User"]) {
+        return [NSSortDescriptor sortDescriptorWithKey:@"login" ascending:YES];
+    } else {
+        return nil;
+    }
+}
+
+#pragma mark - Parse Methods
 -(void)repoParse:(NSData *)data {
     //NSLog(@"Repo data: %@", data);
     NSArray *repoDataArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];

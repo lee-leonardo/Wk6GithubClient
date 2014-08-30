@@ -65,7 +65,7 @@
 															  NSInteger responseCode = [httpResponse statusCode];
 															  switch (responseCode) {
 																  case 200:
-																	  NSLog(@"Alright.");
+																	  //NSLog(@"Alright.");
 																	  [[_appDelegate dataController] repoParse:data];
 																	  break;
 																	  
