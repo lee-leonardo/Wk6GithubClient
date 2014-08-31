@@ -13,7 +13,7 @@
 @interface CDController () <NSFetchedResultsControllerDelegate>
 @property (nonatomic, strong) AppDelegate *appDelegate;
 @property (nonatomic, strong) NSManagedObjectContext *dataContext;
-@property (nonatomic, strong) NSFetchedResultsController *resultsController;
+@property (nonatomic, readwrite, strong) NSFetchedResultsController *resultsController;
 
 @end
 
@@ -32,6 +32,9 @@
 #pragma mark - Request and Sort
 -(void)requestDataOfModelType:(NSString *)model {
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:model];
+    NSSortDescriptor *sort = [self sortType:model];
+    [request setSortDescriptors:@[sort]];
+    
     [request.sortDescriptors arrayByAddingObject:[self sortType:model]];
     
     _resultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request

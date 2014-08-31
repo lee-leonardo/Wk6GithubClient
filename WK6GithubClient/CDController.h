@@ -12,7 +12,10 @@
 
 @interface CDController : NSObject
 
+@property (nonatomic, readonly, strong) NSFetchedResultsController *resultsController;
+
 -(void)repoParse:(NSData *)data;
+-(void)requestDataOfModelType:(NSString *)model;
 
 
 @end
