@@ -2,7 +2,7 @@
 //  User.h
 //  WK6GithubClient
 //
-//  Created by Leonardo Lee on 8/29/14.
+//  Created by Leonardo Lee on 8/30/14.
 //  Copyright (c) 2014 Leonardo Lee. All rights reserved.
 //
 
@@ -22,5 +22,6 @@
 @property (nonatomic, retain) NSNumber * publicRepos;
 @property (nonatomic, retain) NSString * repos;
 @property (nonatomic, retain) NSString * subscriptionsURL;
+@property (nonatomic, retain) NSString * imageURL;
 
 @end

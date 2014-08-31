@@ -93,7 +93,7 @@ NSString * const kSearchQuery = @"https://api.github.com/search/users?sort=%@&or
                 NSInteger responseCode = [httpResponse statusCode];
                 switch (responseCode) {
                     case 200:
-//                        []
+                        [[_appDelegate dataController] contactParse:data];
                         break;
                         
                     default:

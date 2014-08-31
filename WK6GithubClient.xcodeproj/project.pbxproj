@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		381B66C019B2F96800424FFA /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 381B66BF19B2F96800424FFA /* User.m */; };
 		383B477519B29A9600634DC4 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 383B477419B29A9600634DC4 /* Crashlytics.framework */; };
 		383B477819B2C76500634DC4 /* ContactCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 383B477719B2C76500634DC4 /* ContactCollectionViewCell.m */; };
 		3845BBF719B11478002DF386 /* RepoArray.json in Resources */ = {isa = PBXBuildFile; fileRef = 3845BBF619B11478002DF386 /* RepoArray.json */; };
 		3845BBFA19B1280F002DF386 /* Organization.m in Sources */ = {isa = PBXBuildFile; fileRef = 3845BBF919B1280F002DF386 /* Organization.m */; };
 		3845BBFD19B1280F002DF386 /* Repository.m in Sources */ = {isa = PBXBuildFile; fileRef = 3845BBFC19B1280F002DF386 /* Repository.m */; };
-		3845BC0319B12810002DF386 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3845BC0219B12810002DF386 /* User.m */; };
 		3845BC0619B1307C002DF386 /* CDController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3845BC0519B1307C002DF386 /* CDController.m */; };
 		385F759719AFFD1A0042DBC8 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 385F759619AFFD1A0042DBC8 /* Constants.m */; };
 		387D3F4019ABD2230002AF3F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 387D3F3F19ABD2230002AF3F /* main.m */; };
@@ -46,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		381B66BE19B2F96800424FFA /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		381B66BF19B2F96800424FFA /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		383B477419B29A9600634DC4 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		383B477619B2C76500634DC4 /* ContactCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactCollectionViewCell.h; sourceTree = "<group>"; };
 		383B477719B2C76500634DC4 /* ContactCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactCollectionViewCell.m; sourceTree = "<group>"; };
@@ -54,8 +56,6 @@
 		3845BBF919B1280F002DF386 /* Organization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Organization.m; sourceTree = "<group>"; };
 		3845BBFB19B1280F002DF386 /* Repository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Repository.h; sourceTree = "<group>"; };
 		3845BBFC19B1280F002DF386 /* Repository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Repository.m; sourceTree = "<group>"; };
-		3845BC0119B12810002DF386 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		3845BC0219B12810002DF386 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		3845BC0419B1307C002DF386 /* CDController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDController.h; sourceTree = "<group>"; };
 		3845BC0519B1307C002DF386 /* CDController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDController.m; sourceTree = "<group>"; };
 		385F759619AFFD1A0042DBC8 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
@@ -205,8 +205,8 @@
 			isa = PBXGroup;
 			children = (
 				387D3F4419ABD2230002AF3F /* WK6GithubClient.xcdatamodeld */,
-				3845BC0119B12810002DF386 /* User.h */,
-				3845BC0219B12810002DF386 /* User.m */,
+				381B66BE19B2F96800424FFA /* User.h */,
+				381B66BF19B2F96800424FFA /* User.m */,
 				3845BBFB19B1280F002DF386 /* Repository.h */,
 				3845BBFC19B1280F002DF386 /* Repository.m */,
 				3845BBF819B1280F002DF386 /* Organization.h */,
@@ -374,11 +374,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3845BC0319B12810002DF386 /* User.m in Sources */,
 				387D3F6F19ABD75A0002AF3F /* ContactViewController.m in Sources */,
 				387D3F9819AC25310002AF3F /* Repository+RepoExtension.m in Sources */,
 				383B477819B2C76500634DC4 /* ContactCollectionViewCell.m in Sources */,
 				3845BC0619B1307C002DF386 /* CDController.m in Sources */,
+				381B66C019B2F96800424FFA /* User.m in Sources */,
 				387D3F4319ABD2230002AF3F /* AppDelegate.m in Sources */,
 				387D3F4619ABD2230002AF3F /* WK6GithubClient.xcdatamodeld in Sources */,
 				387D3F7319ABD7EB0002AF3F /* RepoViewController.m in Sources */,

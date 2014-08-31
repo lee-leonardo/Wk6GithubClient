@@ -20,6 +20,7 @@
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="followersURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="followingURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="login" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -32,6 +33,6 @@
         <element name="Organization" positionX="-36" positionY="27" width="128" height="88"/>
         <element name="Repository" positionX="-18" positionY="36" width="128" height="105"/>
         <element name="Search" positionX="-63" positionY="-18" width="128" height="88"/>
-        <element name="User" positionX="-54" positionY="18" width="128" height="193"/>
+        <element name="User" positionX="-54" positionY="18" width="128" height="210"/>
     </elements>
 </model>

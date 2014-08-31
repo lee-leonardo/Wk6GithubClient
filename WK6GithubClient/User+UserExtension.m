@@ -11,11 +11,14 @@
 @implementation User (UserExtension)
 
 //bio, blog, company, email, hireable, location, name
-+(NSMutableArray *)parseJSONWithDictionary:(NSDictionary *)inputData {
-	NSMutableArray *users = [[NSMutableArray alloc] init];
++(void)generateContactsData:(NSArray *)inputData withContext:(NSManagedObjectContext *)context {
     
+    for (NSDictionary *user in inputData) {
+        User *userEntity = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
+        userEntity.login = user[@"login"];
+        NSLog(@" Login: %@", userEntity.login);
+    }
     
-	return users;
 }
 
 @end

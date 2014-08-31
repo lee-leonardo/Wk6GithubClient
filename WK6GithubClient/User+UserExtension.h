@@ -10,7 +10,6 @@
 
 @interface User (UserExtension)
 
-+(NSMutableArray *)parseJSONWithDictionary:(NSDictionary *)inputData;
-
++(void)generateContactsData:(NSArray *)inputData withContext:(NSManagedObjectContext *)context;
 
 @end

@@ -72,4 +72,11 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ReceiveRepos" object:self];
 }
 
+-(void)contactParse:(NSData *)data {
+    NSDictionary *searchDataDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    NSArray *searchArray = searchDataDict[@"items"];
+    [User generateContactsData:searchArray withContext:_dataContext];
+    
+}
+
 @end

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Repository+RepoExtension.h"
+#import "User+UserExtension.h"
 
 
 @interface CDController : NSObject
@@ -15,7 +16,9 @@
 @property (nonatomic, readonly, strong) NSFetchedResultsController *resultsController;
 
 -(void)repoParse:(NSData *)data;
--(void)requestDataOfModelType:(NSString *)model;
+-(void)contactParse:(NSData *)data;
 
+
+-(void)requestDataOfModelType:(NSString *)model;
 
 @end
