@@ -52,6 +52,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section {
+    
+    //Need to embed the context, which will need to checked as the context will not be set on launch.
+//    if (<#condition#>) {
+//        <#statements#>
+//    }
+    
     return 10;
 }
 

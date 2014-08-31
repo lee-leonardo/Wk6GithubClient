@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		383B477519B29A9600634DC4 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 383B477419B29A9600634DC4 /* Crashlytics.framework */; };
+		383B477819B2C76500634DC4 /* ContactCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 383B477719B2C76500634DC4 /* ContactCollectionViewCell.m */; };
 		3845BBF719B11478002DF386 /* RepoArray.json in Resources */ = {isa = PBXBuildFile; fileRef = 3845BBF619B11478002DF386 /* RepoArray.json */; };
 		3845BBFA19B1280F002DF386 /* Organization.m in Sources */ = {isa = PBXBuildFile; fileRef = 3845BBF919B1280F002DF386 /* Organization.m */; };
 		3845BBFD19B1280F002DF386 /* Repository.m in Sources */ = {isa = PBXBuildFile; fileRef = 3845BBFC19B1280F002DF386 /* Repository.m */; };
@@ -46,6 +47,8 @@
 
 /* Begin PBXFileReference section */
 		383B477419B29A9600634DC4 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		383B477619B2C76500634DC4 /* ContactCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactCollectionViewCell.h; sourceTree = "<group>"; };
+		383B477719B2C76500634DC4 /* ContactCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactCollectionViewCell.m; sourceTree = "<group>"; };
 		3845BBF619B11478002DF386 /* RepoArray.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RepoArray.json; sourceTree = "<group>"; };
 		3845BBF819B1280F002DF386 /* Organization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Organization.h; sourceTree = "<group>"; };
 		3845BBF919B1280F002DF386 /* Organization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Organization.m; sourceTree = "<group>"; };
@@ -192,6 +195,8 @@
 			isa = PBXGroup;
 			children = (
 				387D3F4A19ABD2230002AF3F /* Main.storyboard */,
+				383B477619B2C76500634DC4 /* ContactCollectionViewCell.h */,
+				383B477719B2C76500634DC4 /* ContactCollectionViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -372,6 +377,7 @@
 				3845BC0319B12810002DF386 /* User.m in Sources */,
 				387D3F6F19ABD75A0002AF3F /* ContactViewController.m in Sources */,
 				387D3F9819AC25310002AF3F /* Repository+RepoExtension.m in Sources */,
+				383B477819B2C76500634DC4 /* ContactCollectionViewCell.m in Sources */,
 				3845BC0619B1307C002DF386 /* CDController.m in Sources */,
 				387D3F4319ABD2230002AF3F /* AppDelegate.m in Sources */,
 				387D3F4619ABD2230002AF3F /* WK6GithubClient.xcdatamodeld in Sources */,

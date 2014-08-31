@@ -10,6 +10,8 @@
 
 //Import the models.
 
+extern NSString * const kSearchQuery;
+
 @interface NetworkController : NSObject
 
 @property (nonatomic, strong) NSString *OAuthToken;

@@ -16,7 +16,7 @@
  Develop a GCD singleton.
  A token is a static variable (starts nil).
  */
-
+NSString * const kSearchQuery = @"https://api.github.com/search/users?sort=%@&order=%@&q=%@";
 
 @interface NetworkController() <NSURLSessionTaskDelegate>
 @property (nonatomic, strong) AppDelegate *appDelegate;
@@ -78,6 +78,31 @@
 												  }];
 	[fetchRepo resume];
 	
+}
+
+-(void)fetchContactsWithQuery:(NSString *)query {
+    NSString *urlString = [[NSString alloc] initWithFormat: kSearchQuery, @"followers", @"asc", query];
+    NSURL *url = [[NSURL alloc] initWithString:urlString];
+    
+    [[self.session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (error) {
+            NSLog(@"%@", error.localizedDescription);
+        } else {
+            if ([response respondsToSelector:@selector(statusCode)]) {
+                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+                NSInteger responseCode = [httpResponse statusCode];
+                switch (responseCode) {
+                    case 200:
+//                        []
+                        break;
+                        
+                    default:
+                        break;
+                }
+            }
+        }
+    }] resume];
+    
 }
 
 #pragma mark - Fetching Samples
