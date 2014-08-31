@@ -140,6 +140,10 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="contacts" id="eh8-w6-Nd4"/>
+                    <connections>
+                        <outlet property="userCollectionView" destination="fOI-Un-ht3" id="T3l-kK-Mmr"/>
+                        <outlet property="userSearchBar" destination="cjZ-Dw-TGG" id="rPZ-qD-5Lf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vxj-JQ-TLj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -177,16 +181,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="eSv-uk-CwL">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <scopeButtonTitles>
-                                    <string>Title</string>
-                                    <string>Title</string>
-                                </scopeButtonTitles>
-                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="iSh-PN-U7Y">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="531"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RepoCell" textLabel="wQU-xf-HcG" detailTextLabel="Uso-QR-q6A" style="IBUITableViewCellStyleValue1" id="zGx-5F-E9g">
@@ -218,13 +214,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="eSv-uk-CwL" secondAttribute="trailing" id="0qg-RE-DXZ"/>
-                            <constraint firstAttribute="trailing" secondItem="iSh-PN-U7Y" secondAttribute="trailing" id="1o3-JN-J95"/>
-                            <constraint firstItem="iSh-PN-U7Y" firstAttribute="top" secondItem="eSv-uk-CwL" secondAttribute="bottom" id="4cL-lD-cmv"/>
-                            <constraint firstItem="m8Z-wA-k92" firstAttribute="top" secondItem="iSh-PN-U7Y" secondAttribute="bottom" id="ZU8-1p-kVF"/>
-                            <constraint firstItem="eSv-uk-CwL" firstAttribute="leading" secondItem="Jo9-Rg-mX7" secondAttribute="leading" id="ZkT-fR-cdI"/>
-                            <constraint firstItem="iSh-PN-U7Y" firstAttribute="leading" secondItem="Jo9-Rg-mX7" secondAttribute="leading" id="qhl-oO-7bZ"/>
-                            <constraint firstItem="eSv-uk-CwL" firstAttribute="top" secondItem="LK0-V8-Cpu" secondAttribute="bottom" id="yml-yf-Mep"/>
+                            <constraint firstItem="m8Z-wA-k92" firstAttribute="top" secondItem="iSh-PN-U7Y" secondAttribute="bottom" id="Cw2-kt-P2j"/>
+                            <constraint firstItem="iSh-PN-U7Y" firstAttribute="top" secondItem="LK0-V8-Cpu" secondAttribute="bottom" id="liO-G8-RSd"/>
+                            <constraint firstAttribute="trailing" secondItem="iSh-PN-U7Y" secondAttribute="trailing" id="lrH-Xn-gPR"/>
+                            <constraint firstItem="iSh-PN-U7Y" firstAttribute="leading" secondItem="Jo9-Rg-mX7" secondAttribute="leading" id="owe-Yh-Lqq"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Repositories" id="1bZ-s6-zMX"/>

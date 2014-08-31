@@ -65,7 +65,6 @@
  numberOfRowsInSection:(NSInteger)section{
     return [[[[_appDelegate dataController] resultsController] sections][section] numberOfObjects];
 }
-
 - (UITableViewCell *)tableView:(UITableView *)tableView
 		 cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	

@@ -34,7 +34,7 @@
         }
         
         repository.link = repo[@"html_url"]; //For right now, it is a html url.
-        
+        //NSLog(@"Repository: %@", repository);
     }
     
 }

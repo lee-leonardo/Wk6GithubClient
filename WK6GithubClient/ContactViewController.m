@@ -8,7 +8,9 @@
 
 #import "ContactViewController.h"
 
-@interface ContactViewController () <UICollectionViewDataSource>
+@interface ContactViewController () <UICollectionViewDataSource, UISearchBarDelegate>
+@property (weak, nonatomic) IBOutlet UISearchBar *userSearchBar;
+@property (weak, nonatomic) IBOutlet UICollectionView *userCollectionView;
 
 @end
 
@@ -36,6 +38,12 @@
 	UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ContactCell" forIndexPath:indexPath];
 	
 	return cell;
+}
+
+#pragma mark UISearchBar
+- (void)searchBar:(UISearchBar *)searchBar
+    textDidChange:(NSString *)searchText {
+    
 }
 
 @end

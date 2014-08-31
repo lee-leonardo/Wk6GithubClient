@@ -41,6 +41,14 @@
                                                              managedObjectContext:_dataContext
                                                                sectionNameKeyPath:nil
                                                                         cacheName:nil];
+    NSError *error;
+    [_resultsController performFetch:&error];
+    
+    if (error) {
+        NSLog(@"%@", error);
+    }
+    
+    //Do I need this here? Ask!
     _resultsController.delegate = self;
 }
 
