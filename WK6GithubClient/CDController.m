@@ -68,7 +68,6 @@
     NSArray *repoDataArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     [Repository generateRepoData:repoDataArray withContext:_dataContext];
     
-    //Below Subject to change:
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ReceiveRepos" object:self];
 }
 

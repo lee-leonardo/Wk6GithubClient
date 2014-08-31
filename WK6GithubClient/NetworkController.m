@@ -102,7 +102,30 @@ NSString * const kSearchQuery = @"https://api.github.com/search/users?sort=%@&or
             }
         }
     }] resume];
+}
+
+-(void)fetchUser {
+    NSString *urlString = [[NSString alloc] initWithFormat:kSearchQuery, @"followers", @"asc", @"octocat" ];
+    NSURL *url = [[NSURL alloc] initWithString:urlString];
     
+    [[self.session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (error) {
+            NSLog(@"%@", error.localizedDescription);
+        } else {
+            if ([response respondsToSelector:@selector(statusCode)]) {
+                NSHTTPURLResponse *httpReponse = (NSHTTPURLResponse *)response;
+                NSInteger reponseCode = [httpReponse statusCode];
+                switch (reponseCode) {
+                    case 200:
+                        [[_appDelegate dataController] contactParse:data];
+                        break;
+                        
+                    default:
+                        break;
+                }
+            }
+        }
+    }] resume];
 }
 
 #pragma mark - Fetching Samples

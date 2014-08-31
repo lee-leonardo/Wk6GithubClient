@@ -17,6 +17,7 @@
 
 @property (strong, nonatomic) AppDelegate *appDelegate;
 @property (strong, nonatomic) NSFetchedResultsController *resultsController;
+@property BOOL notFirstTime;
 
 @end
 
@@ -25,9 +26,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _appDelegate = [[UIApplication sharedApplication] delegate];
+    
+}
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    if (!_notFirstTime) {
+        [[_appDelegate networkController] fetchUser];
+        _notFirstTime = YES;
+    } else {
+        [[_appDelegate dataController] requestDataOfModelType:@"User"];
+    }
     _resultsController = [[_appDelegate dataController] resultsController];
     _resultsController.delegate = self;
-    
 }
 
 - (void)didReceiveMemoryWarning {

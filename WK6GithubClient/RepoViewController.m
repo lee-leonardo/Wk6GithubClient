@@ -16,6 +16,7 @@
 
 @property (strong, nonatomic) AppDelegate *appDelegate;
 @property (strong, nonatomic) NSFetchedResultsController *resultsController;
+@property BOOL notFirstTime;
 
 @end
 
@@ -30,7 +31,12 @@
 	[super viewDidAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveRepos:) name:@"ReceiveRepos" object:nil];
     
-    [[_appDelegate networkController] fetchRepos:self];
+    if (!_notFirstTime) {
+        [[_appDelegate networkController] fetchRepos:self];
+        _notFirstTime = YES;
+    } else {
+        [[_appDelegate dataController] requestDataOfModelType:@"Repository"];
+    }
     _resultsController = [[_appDelegate dataController] resultsController];
     _resultsController.delegate = self;
 }

@@ -21,6 +21,6 @@ extern NSString * const kSearchQuery;
 -(void)handleCallbackURL:(NSURL *)url;
 
 -(void)fetchResultsRepoSample;
--(void)fetchUserData;
+-(void)fetchUser;
 
 @end
