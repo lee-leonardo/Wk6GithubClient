@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		383B477519B29A9600634DC4 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 383B477419B29A9600634DC4 /* Crashlytics.framework */; };
 		3845BBF719B11478002DF386 /* RepoArray.json in Resources */ = {isa = PBXBuildFile; fileRef = 3845BBF619B11478002DF386 /* RepoArray.json */; };
 		3845BBFA19B1280F002DF386 /* Organization.m in Sources */ = {isa = PBXBuildFile; fileRef = 3845BBF919B1280F002DF386 /* Organization.m */; };
 		3845BBFD19B1280F002DF386 /* Repository.m in Sources */ = {isa = PBXBuildFile; fileRef = 3845BBFC19B1280F002DF386 /* Repository.m */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		383B477419B29A9600634DC4 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		3845BBF619B11478002DF386 /* RepoArray.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RepoArray.json; sourceTree = "<group>"; };
 		3845BBF819B1280F002DF386 /* Organization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Organization.h; sourceTree = "<group>"; };
 		3845BBF919B1280F002DF386 /* Organization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Organization.m; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				383B477519B29A9600634DC4 /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +113,7 @@
 		387D3F3119ABD2230002AF3F = {
 			isa = PBXGroup;
 			children = (
+				383B477419B29A9600634DC4 /* Crashlytics.framework */,
 				387D3F3C19ABD2230002AF3F /* WK6GithubClient */,
 				387D3F5619ABD2230002AF3F /* WK6GithubClientTests */,
 				387D3F3B19ABD2230002AF3F /* Products */,
@@ -254,6 +258,7 @@
 				387D3F3619ABD2230002AF3F /* Sources */,
 				387D3F3719ABD2230002AF3F /* Frameworks */,
 				387D3F3819ABD2230002AF3F /* Resources */,
+				383B477319B29A4100634DC4 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -342,6 +347,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		383B477319B29A4100634DC4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run b27867868d56ac0aa5505130348bb038aa2afb64 fadf119c5dec828e8f7753bb64901e769e4bc0d1488ef0d22294e5c92aca52b0";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		387D3F3619ABD2230002AF3F /* Sources */ = {
@@ -481,6 +502,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = WK6GithubClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -495,6 +520,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = WK6GithubClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

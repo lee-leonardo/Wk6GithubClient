@@ -122,7 +122,6 @@
 	
 	//NSLog(@"%@", dataDict);
 	
-	
 	//fullName, idNumber, language, link, login, name
 	NSString *owner = [itemDict objectForKey:@"owner"]; //Decompose further for specifics on the owner...
 	NSString *repoName = [itemDict objectForKey:@"name"];

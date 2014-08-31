@@ -47,9 +47,7 @@
 #pragma mark
 -(void)receiveRepos:(NSNotification *)sender {
     NSLog(@"Fired!");
-    
-//    [[_appDelegate dataController] ];
-    
+        
     [self.repoTableView reloadData];
 }
 
