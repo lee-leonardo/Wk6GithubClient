@@ -10,9 +10,10 @@
 #import "AppDelegate.h"
 
 @interface SearchViewController () <UITableViewDataSource, UITableViewDelegate>
-@property (nonatomic, strong) NSMutableArray *searchList;
+
+
 @property (nonatomic, strong) AppDelegate *appDelegate;
-@property (nonatomic, strong) NSManagedObjectContext *repoContext;
+@property (strong, nonatomic) NSFetchedResultsController *resultsController;
 
 @end
 
@@ -21,7 +22,7 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
 	_appDelegate = [[UIApplication sharedApplication] delegate];
-    _repoContext = [_appDelegate managedObjectContext];
+    _resultsController = [[_appDelegate dataController] resultsController];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -40,14 +41,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-//-(void)reloadRepos {
-//    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Repository"];
-//    NSError *error;
-//    if (error) {
-//        NSLog(@"%@", error.localizedDescription);
-//    }
-//}
-
 #pragma mark - Delegates
 #pragma mark UITableView
 -(UITableViewCell *)tableView:(UITableView *)tableView
@@ -59,7 +52,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section {
-	return _searchList.count;
+    return 10;
 }
 
 @end

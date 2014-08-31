@@ -12,10 +12,10 @@
 
 @interface RepoViewController () <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
 
-@property (strong, nonatomic) AppDelegate *appDelegate;
 @property (weak, nonatomic) IBOutlet UITableView *repoTableView;
+
+@property (strong, nonatomic) AppDelegate *appDelegate;
 @property (strong, nonatomic) NSFetchedResultsController *resultsController;
-@property (strong, nonatomic) NSMutableArray *repoData;
 
 @end
 
@@ -24,7 +24,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _appDelegate =  [[UIApplication sharedApplication] delegate];
-	_repoData = [[NSMutableArray alloc] init];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
