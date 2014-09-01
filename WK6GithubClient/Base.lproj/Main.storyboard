@@ -196,21 +196,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="iSh-PN-U7Y">
-                                <rect key="frame" x="0.0" y="20" width="600" height="531"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="485"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RepoCell" textLabel="wQU-xf-HcG" detailTextLabel="Uso-QR-q6A" style="IBUITableViewCellStyleValue1" id="zGx-5F-E9g">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RepoCell" textLabel="8lh-Ra-Cwx" detailTextLabel="67i-9i-FBf" style="IBUITableViewCellStyleValue1" id="OkU-QX-Fg8">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zGx-5F-E9g" id="SOM-en-eWf">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OkU-QX-Fg8" id="1wq-yA-vFo">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wQU-xf-HcG">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8lh-Ra-Cwx">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Uso-QR-q6A">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="67i-9i-FBf">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
@@ -225,13 +226,24 @@
                                     <outlet property="delegate" destination="242-SF-BEB" id="6zQ-dC-Rec"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v14-oc-Wlb">
+                                <rect key="frame" x="264" y="513" width="72" height="30"/>
+                                <state key="normal" title="New Repo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="createNewRepo:" destination="242-SF-BEB" eventType="touchUpInside" id="bdv-5A-cVq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="m8Z-wA-k92" firstAttribute="top" secondItem="iSh-PN-U7Y" secondAttribute="bottom" id="Cw2-kt-P2j"/>
-                            <constraint firstItem="iSh-PN-U7Y" firstAttribute="top" secondItem="LK0-V8-Cpu" secondAttribute="bottom" id="liO-G8-RSd"/>
-                            <constraint firstAttribute="trailing" secondItem="iSh-PN-U7Y" secondAttribute="trailing" id="lrH-Xn-gPR"/>
-                            <constraint firstItem="iSh-PN-U7Y" firstAttribute="leading" secondItem="Jo9-Rg-mX7" secondAttribute="leading" id="owe-Yh-Lqq"/>
+                            <constraint firstAttribute="centerX" secondItem="v14-oc-Wlb" secondAttribute="centerX" id="0IB-ps-dpT"/>
+                            <constraint firstItem="iSh-PN-U7Y" firstAttribute="top" secondItem="LK0-V8-Cpu" secondAttribute="bottom" id="EgZ-w8-ImY"/>
+                            <constraint firstItem="iSh-PN-U7Y" firstAttribute="leading" secondItem="Jo9-Rg-mX7" secondAttribute="leading" id="KEK-i8-Hr2"/>
+                            <constraint firstItem="m8Z-wA-k92" firstAttribute="top" secondItem="v14-oc-Wlb" secondAttribute="bottom" constant="8" id="QDz-H3-m6c"/>
+                            <constraint firstItem="v14-oc-Wlb" firstAttribute="top" secondItem="iSh-PN-U7Y" secondAttribute="bottom" constant="8" id="aUb-df-TKm"/>
+                            <constraint firstAttribute="trailing" secondItem="iSh-PN-U7Y" secondAttribute="trailing" id="zOv-VV-nh1"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Repositories" id="1bZ-s6-zMX"/>

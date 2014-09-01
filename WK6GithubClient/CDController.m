@@ -64,6 +64,13 @@
 }
 
 #pragma mark - Parse Methods
+-(void)addedRepo:(NSData *)data {
+    NSDictionary *newRepoDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    [Repository generateRepoData:@[newRepoDictionary] withContext:_dataContext];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReceiveRepos" object:nil];
+}
+
 -(void)repoParse:(NSData *)data {
     //NSLog(@"Repo data: %@", data);
     NSArray *repoDataArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];

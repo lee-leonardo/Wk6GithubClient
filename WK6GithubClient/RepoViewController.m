@@ -25,6 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _appDelegate =  [[UIApplication sharedApplication] delegate];
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -50,7 +51,12 @@
     [super didReceiveMemoryWarning];
 }
 
-#pragma mark
+#pragma mark - Methods
+- (IBAction)createNewRepo:(id)sender {
+    NSLog(@"Create New Repo Fired!");
+//    [_appDelegate networkController]s
+}
+
 -(void)receiveRepos:(NSNotification *)sender {
     NSLog(@"Fired!");
     

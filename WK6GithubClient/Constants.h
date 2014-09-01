@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString * const kGithubAPI;
 extern NSString * const kGithubClientID;
 extern NSString * const kGithubClientSecret;
 extern NSString * const kGithubCallBackURI;

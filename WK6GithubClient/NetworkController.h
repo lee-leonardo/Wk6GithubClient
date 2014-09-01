@@ -19,8 +19,6 @@ extern NSString * const kSearchQuery;
 -(void)fetchRepos:(id)sender;
 -(void)githubAuthenticate;
 -(void)handleCallbackURL:(NSURL *)url;
-
--(void)fetchResultsRepoSample;
 -(void)fetchUser;
 
 @end

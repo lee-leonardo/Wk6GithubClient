@@ -51,7 +51,8 @@ NSString * const kSearchQuery = @"https://api.github.com/search/users?sort=%@&or
 -(void)fetchRepos:(id)sender {
     NSLog(@"Fetch called");
     
-	NSString *urlString = @"https://api.github.com/user/repos";
+//	NSString *urlString = @"https://api.github.com/user/repos";
+    NSString *urlString = [[NSString alloc] initWithFormat:@"%@user/repos", kGithubAPI];
     NSURL *url = [[NSURL alloc] initWithString:urlString];
 	
 	NSURLSessionDataTask *fetchRepo = [self.session dataTaskWithURL:url
@@ -104,6 +105,52 @@ NSString * const kSearchQuery = @"https://api.github.com/search/users?sort=%@&or
     }] resume];
 }
 
+#pragma mark Create Repo
+-(void)createRepoWithName:(NSString *)name {
+    
+    NSDictionary *post = @{@"name":name};
+    
+    NSData *postData = [NSJSONSerialization dataWithJSONObject:post options:0 error:nil];
+    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
+    
+    NSString *createString = [[NSString alloc] initWithFormat:@"%@user/repos?scope=public_repo",kGithubAPI];
+    NSURL *createURL = [[NSURL alloc] initWithString:createString];
+
+    NSMutableURLRequest *createRequest = [[NSMutableURLRequest alloc] init];
+    [createRequest setURL:createURL];
+    [createRequest setHTTPMethod:@"POST"];
+    [createRequest setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [createRequest setValue:[NSString stringWithFormat:@"token %@", _OAuthToken] forHTTPHeaderField:@"Authorization"];
+    [createRequest setValue:@"text/plain" forHTTPHeaderField:@"Content-Type"];
+    [createRequest setHTTPBody:postData];
+    
+    //This is where the NSURLSessionDataTask happens.
+    NSURLSessionDataTask *createRepoTask = [self.session dataTaskWithRequest:createRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        
+        if (error) {
+            NSLog(@"ErrorL\n%@", error.localizedDescription);
+        } else {
+            if ([response respondsToSelector:@selector(statusCode)]) {
+                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+                NSInteger responseCode = [httpResponse statusCode];
+                switch (responseCode) {
+                    case 201:
+                        NSLog(@"Good to go!");
+                        //Needs a special parse method or data wrapper.
+                        [[_appDelegate dataController] addedRepo:data];
+                        break;
+                        
+                    default:
+                        NSLog(@"Somethings wrong... like even 200 is wrong here.");
+                        break;
+                }
+            }
+        }
+    }];
+    [createRepoTask resume];
+}
+
+#pragma mark - Search
 -(void)fetchUser {
     NSString *urlString = [[NSString alloc] initWithFormat:kSearchQuery, @"followers", @"asc", @"octocat" ];
     NSURL *url = [[NSURL alloc] initWithString:urlString];
@@ -126,80 +173,6 @@ NSString * const kSearchQuery = @"https://api.github.com/search/users?sort=%@&or
             }
         }
     }] resume];
-}
-
-#pragma mark - Fetching Samples
--(void)fetchSearchRepoResults {
-	NSData *sampleFile = [[NSData alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"SearchRepoSample" ofType:@"json"]];
-	NSDictionary *fileDictionary = [NSJSONSerialization JSONObjectWithData:sampleFile options:0 error:nil];
-	NSArray *itemArray = [fileDictionary objectForKey:@"items"];
-	
-	for (NSDictionary *item in itemArray) {
-		if ([item objectForKey:@"owner"]) {
-			NSDictionary *owner = [item objectForKey:@"owner"];
-			NSString *login = [owner objectForKey:@"login"];
-			
-			NSLog(@"%@", login);
-		}
-		NSString *name = [item objectForKey:@"name"];
-		NSString *url = [item objectForKey:@"html_url"];
-		
-		NSLog(@"%@ %@", name, url);
-
-	}
-}
--(void)fetchSearchUserResults {
-	NSData *sampleFile = [[NSData alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"SearchCodeSample" ofType:@"json"]];
-	NSDictionary *fileDictionary = [NSJSONSerialization JSONObjectWithData:sampleFile options:0 error:nil];
-	NSArray *itemArray = [fileDictionary objectForKey:@"items"];
-	
-	for (NSDictionary *item in itemArray) {
-		NSString *login = [item objectForKey:@"login"];
-		
-		NSLog(@"%@", login);
-
-	}
-
-}
--(void)fetchResultsRepoSample {
-	NSData *sampleFile = [[NSData alloc] initWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"SearchRepoSample" ofType:@"json"]];
-	
-	NSMutableDictionary *dataDict = [NSJSONSerialization JSONObjectWithData:sampleFile options:0 error:nil];
-	NSMutableArray *itemArray = [dataDict objectForKey:@"items"];
-	NSMutableDictionary *itemDict = [itemArray firstObject];
-	
-	//NSLog(@"%@", dataDict);
-	
-	//fullName, idNumber, language, link, login, name
-	NSString *owner = [itemDict objectForKey:@"owner"]; //Decompose further for specifics on the owner...
-	NSString *repoName = [itemDict objectForKey:@"name"];
-	NSString *repoFullName = [itemDict objectForKey:@"full_name"];
-	NSNumber *idNumber = [itemDict objectForKey:@"id"];
-	NSString *language = [itemDict objectForKey:@"language"];
-	NSString *link = [itemDict objectForKey:@"url"];
-	
-	NSLog(@"login: %@\nRepo: %@\nID: %@", owner, repoFullName, idNumber);
-	NSLog(@"Language: %@\nLink: %@", language, link);
-	NSLog(@"RepoConcat: %@", repoName);
-}
-
-//I have a better version of this I need to grab from my other file.
--(void)fetchUserData {
-	NSData *sampleFile = [[NSData alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"UserSingleSample" ofType:@"json"]];
-	
-	NSMutableDictionary *dataDict = [NSJSONSerialization JSONObjectWithData:sampleFile options:0 error:nil];
-	//NSLog(@"%@", dataDict);
-	
-	NSString *name = [[NSString alloc] init];
-	NSString *login = [[NSString alloc] init];
-	
-	name = [dataDict objectForKey:@"name"];
-	login = [dataDict objectForKey:@"login"];
-	
-	
-//	User *user = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:_dataContext];
-//	user.name = name;
-//	user.login = login;
 }
 
 #pragma mark - OAuthentication
