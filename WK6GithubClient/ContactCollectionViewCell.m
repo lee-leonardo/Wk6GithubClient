@@ -10,8 +10,6 @@
 
 @interface ContactCollectionViewCell ()
 
-@property (weak, nonatomic) IBOutlet UIImageView *userImageView;
-
 @end
 
 @implementation ContactCollectionViewCell

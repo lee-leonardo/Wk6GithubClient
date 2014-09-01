@@ -39,6 +39,12 @@
     }
     _resultsController = [[_appDelegate dataController] resultsController];
     _resultsController.delegate = self;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveUsers:) name:@"ReceiveUsers" object:nil];
+}
+-(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated]; 
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"ReceiveUsers" object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,8 +52,22 @@
 }
 
 #pragma mark Methods
+-(void)receiveUsers:(NSNotification *)sender {
+    NSLog(@"Users received!");
+    [_userCollectionView reloadData];
+    
+}
+
 -(void)updateCell:(ContactCollectionViewCell *)cell withIndexPath:(NSIndexPath *)indexPath {
     //Where the UIImage and the other important
+    User *user = [[[_appDelegate dataController] resultsController] fetchedObjects][indexPath.row];
+    
+    NSURL *url = [NSURL URLWithString:[user imageURL]];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    UIImage *image = [[UIImage alloc] initWithData:data];
+    //CGSize size = image.size;
+    
+    cell.contactImageView.image = image;
 }
 
 #pragma mark - Delegates
@@ -57,7 +77,7 @@
     return [[[[_appDelegate dataController] resultsController] sections][section] numberOfObjects];
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
+- (ContactCollectionViewCell *)collectionView:(UICollectionView *)collectionView
 				  cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 	ContactCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ContactCell" forIndexPath:indexPath];
     [self updateCell:cell withIndexPath:indexPath];
@@ -89,6 +109,8 @@
         default:
             break;
     }
+}
+-(void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     
 }
 

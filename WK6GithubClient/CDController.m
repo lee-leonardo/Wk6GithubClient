@@ -56,6 +56,7 @@
     if ([model isEqualToString:@"Repository"]) {
         return [NSSortDescriptor sortDescriptorWithKey:@"fullName" ascending:YES];
     } else if ([model isEqualToString:@"User"]) {
+//    TODO: This can easily be returning nil... how do I fix this?
         return [NSSortDescriptor sortDescriptorWithKey:@"login" ascending:YES];
     } else {
         return nil;
@@ -75,6 +76,8 @@
     NSDictionary *searchDataDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     NSArray *searchArray = searchDataDict[@"items"];
     [User generateContactsData:searchArray withContext:_dataContext];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReceiveUsers" object:self];
     
 }
 

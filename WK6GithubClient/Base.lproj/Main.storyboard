@@ -114,7 +114,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fYP-9d-E4R">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fYP-9d-E4R">
                                                     <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                                 </imageView>
                                             </subviews>
@@ -127,7 +127,7 @@
                                             <constraint firstItem="fYP-9d-E4R" firstAttribute="leading" secondItem="cKj-mK-K95" secondAttribute="leading" id="w3h-iq-FPZ"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="userImageView" destination="fYP-9d-E4R" id="8sX-TA-fq9"/>
+                                            <outlet property="contactImageView" destination="fYP-9d-E4R" id="w9y-yv-wYq"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
