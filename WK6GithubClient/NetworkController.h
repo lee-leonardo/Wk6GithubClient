@@ -16,6 +16,7 @@ extern NSString * const kSearchQuery;
 
 @property (nonatomic, strong) NSString *OAuthToken;
 
+-(void)createRepoWithName:(NSString *)name;
 -(void)fetchRepos:(id)sender;
 -(void)githubAuthenticate;
 -(void)handleCallbackURL:(NSURL *)url;

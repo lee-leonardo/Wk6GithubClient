@@ -16,6 +16,8 @@
 
 @property (strong, nonatomic) AppDelegate *appDelegate;
 @property (strong, nonatomic) NSFetchedResultsController *resultsController;
+@property (strong, nonatomic) UIAlertController *createRepoController;
+
 @property BOOL notFirstTime;
 
 @end
@@ -25,6 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _appDelegate =  [[UIApplication sharedApplication] delegate];
+   _createRepoController = [self generateCreateAC];
     
 }
 
@@ -52,9 +55,30 @@
 }
 
 #pragma mark - Methods
+-(UIAlertController *)generateCreateAC {
+    UIAlertController *createAlert = [UIAlertController alertControllerWithTitle:@"Create Repo?"
+                                                                          message:@"This button allows you to create a repo:"
+                                                                   preferredStyle:UIAlertControllerStyleAlert];
+    [createAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"Name here:";
+    }];
+                                      
+    UIAlertAction *done = [UIAlertAction actionWithTitle:@"Done" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        UITextField *entry = [[createAlert textFields] firstObject];
+        [[_appDelegate networkController] createRepoWithName:entry.text];
+    }];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    
+    [createAlert addAction:done];
+    [createAlert addAction:cancel];
+    
+    return createAlert;
+}
+
 - (IBAction)createNewRepo:(id)sender {
     NSLog(@"Create New Repo Fired!");
-//    [_appDelegate networkController]s
+//    [_appDelegate networkController]
+    [self presentViewController:_createRepoController animated:YES completion:nil];
 }
 
 -(void)receiveRepos:(NSNotification *)sender {

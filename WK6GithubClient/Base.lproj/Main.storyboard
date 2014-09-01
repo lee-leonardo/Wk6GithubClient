@@ -175,7 +175,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="Qdq-WA-VMD" kind="relationship" relationship="viewControllers" id="pO6-zP-evv"/>
-                        <segue destination="242-SF-BEB" kind="relationship" relationship="viewControllers" id="8hX-KT-hbS"/>
+                        <segue destination="dLS-8I-F1m" kind="relationship" relationship="viewControllers" id="8hX-KT-hbS"/>
                         <segue destination="aHa-g8-0kj" kind="relationship" relationship="viewControllers" id="2oE-pt-VSc"/>
                     </connections>
                 </tabBarController>
@@ -183,7 +183,7 @@
             </objects>
             <point key="canvasLocation" x="1899" y="-1936"/>
         </scene>
-        <!--Repositories-->
+        <!--Repo View Controller-->
         <scene sceneID="6c1-hX-QV8">
             <objects>
                 <viewController id="242-SF-BEB" customClass="RepoViewController" sceneMemberID="viewController">
@@ -196,7 +196,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="iSh-PN-U7Y">
-                                <rect key="frame" x="0.0" y="20" width="600" height="485"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RepoCell" textLabel="8lh-Ra-Cwx" detailTextLabel="67i-9i-FBf" style="IBUITableViewCellStyleValue1" id="OkU-QX-Fg8">
@@ -226,32 +226,46 @@
                                     <outlet property="delegate" destination="242-SF-BEB" id="6zQ-dC-Rec"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v14-oc-Wlb">
-                                <rect key="frame" x="264" y="513" width="72" height="30"/>
-                                <state key="normal" title="New Repo">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="createNewRepo:" destination="242-SF-BEB" eventType="touchUpInside" id="bdv-5A-cVq"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="v14-oc-Wlb" secondAttribute="centerX" id="0IB-ps-dpT"/>
-                            <constraint firstItem="iSh-PN-U7Y" firstAttribute="top" secondItem="LK0-V8-Cpu" secondAttribute="bottom" id="EgZ-w8-ImY"/>
-                            <constraint firstItem="iSh-PN-U7Y" firstAttribute="leading" secondItem="Jo9-Rg-mX7" secondAttribute="leading" id="KEK-i8-Hr2"/>
-                            <constraint firstItem="m8Z-wA-k92" firstAttribute="top" secondItem="v14-oc-Wlb" secondAttribute="bottom" constant="8" id="QDz-H3-m6c"/>
-                            <constraint firstItem="v14-oc-Wlb" firstAttribute="top" secondItem="iSh-PN-U7Y" secondAttribute="bottom" constant="8" id="aUb-df-TKm"/>
-                            <constraint firstAttribute="trailing" secondItem="iSh-PN-U7Y" secondAttribute="trailing" id="zOv-VV-nh1"/>
+                            <constraint firstItem="iSh-PN-U7Y" firstAttribute="leading" secondItem="Jo9-Rg-mX7" secondAttribute="leading" id="Q5W-5d-e0z"/>
+                            <constraint firstItem="iSh-PN-U7Y" firstAttribute="top" secondItem="Jo9-Rg-mX7" secondAttribute="top" id="Uhg-gj-KaX"/>
+                            <constraint firstItem="m8Z-wA-k92" firstAttribute="top" secondItem="iSh-PN-U7Y" secondAttribute="bottom" id="kB5-zR-jEB"/>
+                            <constraint firstAttribute="trailing" secondItem="iSh-PN-U7Y" secondAttribute="trailing" id="uKu-Ey-xQZ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Repositories" id="1bZ-s6-zMX"/>
+                    <navigationItem key="navigationItem" id="IDq-y1-2vT">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="MYq-Lg-tfh">
+                            <connections>
+                                <action selector="createNewRepo:" destination="242-SF-BEB" id="6wa-O7-rBl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="repoTableView" destination="iSh-PN-U7Y" id="etZ-4l-KJD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="at3-xN-6GU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1899" y="-386"/>
+        </scene>
+        <!--Repositories-->
+        <scene sceneID="Sm7-eK-zg9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dLS-8I-F1m" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Repositories" id="1bZ-s6-zMX"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="grM-Qs-l9P">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="242-SF-BEB" kind="relationship" relationship="rootViewController" id="U76-yI-5qm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="81C-4C-bm0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1899" y="-1116"/>
         </scene>

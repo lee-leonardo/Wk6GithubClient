@@ -50,9 +50,8 @@ NSString * const kSearchQuery = @"https://api.github.com/search/users?sort=%@&or
 #pragma mark - Repository (Self)
 -(void)fetchRepos:(id)sender {
     NSLog(@"Fetch called");
-    
-//	NSString *urlString = @"https://api.github.com/user/repos";
-    NSString *urlString = [[NSString alloc] initWithFormat:@"%@user/repos", kGithubAPI];
+
+    NSString *urlString = [[NSString alloc] initWithFormat:@"https://api.github.com/user/repos"];
     NSURL *url = [[NSURL alloc] initWithString:urlString];
 	
 	NSURLSessionDataTask *fetchRepo = [self.session dataTaskWithURL:url
@@ -71,7 +70,7 @@ NSString * const kSearchQuery = @"https://api.github.com/search/users?sort=%@&or
 																	  break;
 																	  
 																  default:
-                                                                      NSLog(@"somethings wrong");
+                                                                      NSLog(@"somethings wrong. Error: %lu", (long)responseCode);
 																	  break;
 															  }
 														  }
@@ -113,7 +112,7 @@ NSString * const kSearchQuery = @"https://api.github.com/search/users?sort=%@&or
     NSData *postData = [NSJSONSerialization dataWithJSONObject:post options:0 error:nil];
     NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
     
-    NSString *createString = [[NSString alloc] initWithFormat:@"%@user/repos?scope=public_repo",kGithubAPI];
+    NSString *createString = [[NSString alloc] initWithFormat:@"https://api.github.com/user/repos?scope=public_repo"];
     NSURL *createURL = [[NSURL alloc] initWithString:createString];
 
     NSMutableURLRequest *createRequest = [[NSMutableURLRequest alloc] init];
@@ -142,6 +141,7 @@ NSString * const kSearchQuery = @"https://api.github.com/search/users?sort=%@&or
                         
                     default:
                         NSLog(@"Somethings wrong... like even 200 is wrong here.");
+                        NSLog(@"%ld", (long)responseCode);
                         break;
                 }
             }
