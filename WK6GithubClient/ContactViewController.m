@@ -110,8 +110,23 @@
             break;
     }
 }
+
+//This is the way that AshFurrow has done it. I do not know if this is the most suitable for this situation. I'll need to ask someone in class before I implement it. (As it requires some over head that isn't really suitable for this assignment.
+//https://github.com/AshFurrow/UICollectionView-NSFetchedResultsController/blob/master/AFMasterViewController.m
+/*
+-(void)controller:(NSFetchedResultsController *)controller didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+    switch (type) {
+        case <#constant#>:
+            <#statements#>
+            break;
+            
+        default:
+            break;
+    }
+}
 -(void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     
 }
+*/
 
 @end
