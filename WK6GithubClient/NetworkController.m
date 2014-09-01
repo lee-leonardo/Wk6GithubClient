@@ -14,7 +14,9 @@
 
 /*
  Develop a GCD singleton.
- A token is a static variable (starts nil).
+ NSDateFormatter !! -> Use this to generate a date from a string.
+ Created is the most common of the dates.
+ 
  */
 NSString * const kSearchQuery = @"https://api.github.com/search/users?sort=%@&order=%@&q=%@";
 
@@ -49,20 +51,20 @@ NSString * const kSearchQuery = @"https://api.github.com/search/users?sort=%@&or
 
 #pragma mark - Repository (Self)
 -(void)fetchRepos:(id)sender {
-    NSLog(@"Fetch called");
-
+    //NSLog(@"Fetch called");
     NSString *urlString = [[NSString alloc] initWithFormat:@"https://api.github.com/user/repos"];
     NSURL *url = [[NSURL alloc] initWithString:urlString];
 	
 	NSURLSessionDataTask *fetchRepo = [self.session dataTaskWithURL:url
 												  completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
 													  if (error) {
-														  NSLog(@"%@", error.localizedDescription);
+														  NSLog(@"Fetch Repos Error: %@", error.localizedDescription);
 														  
 													  } else {
 														  if ( [response respondsToSelector:@selector(statusCode)]) {
 															  NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
 															  NSInteger responseCode = [httpResponse statusCode];
+                                                              NSLog(@"Fetch Repos: %lu", (long) responseCode);
 															  switch (responseCode) {
 																  case 200:
 																	  //NSLog(@"Alright.");
@@ -86,17 +88,19 @@ NSString * const kSearchQuery = @"https://api.github.com/search/users?sort=%@&or
     
     [[self.session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (error) {
-            NSLog(@"%@", error.localizedDescription);
+            NSLog(@"Fetch Contacts Error: %@", error.localizedDescription);
         } else {
             if ([response respondsToSelector:@selector(statusCode)]) {
                 NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
                 NSInteger responseCode = [httpResponse statusCode];
                 switch (responseCode) {
                     case 200:
+                        NSLog(@"Contacts Fetch: %lu", (long)responseCode);
                         [[_appDelegate dataController] contactParse:data];
                         break;
                         
                     default:
+                        NSLog(@"Contacts FetchL %lu", (long)responseCode);
                         break;
                 }
             }
@@ -127,14 +131,14 @@ NSString * const kSearchQuery = @"https://api.github.com/search/users?sort=%@&or
     NSURLSessionDataTask *createRepoTask = [self.session dataTaskWithRequest:createRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         
         if (error) {
-            NSLog(@"ErrorL\n%@", error.localizedDescription);
+            NSLog(@"Create Repo Error: %@", error.localizedDescription);
         } else {
             if ([response respondsToSelector:@selector(statusCode)]) {
                 NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
                 NSInteger responseCode = [httpResponse statusCode];
                 switch (responseCode) {
                     case 201:
-                        NSLog(@"Good to go!");
+                        NSLog(@"Create Repo %lu", (long)responseCode);
                         //Needs a special parse method or data wrapper.
                         [[_appDelegate dataController] addedRepo:data];
                         break;
@@ -157,7 +161,7 @@ NSString * const kSearchQuery = @"https://api.github.com/search/users?sort=%@&or
     
     [[self.session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (error) {
-            NSLog(@"%@", error.localizedDescription);
+            NSLog(@"Fetch User Error: %@", error.localizedDescription);
         } else {
             if ([response respondsToSelector:@selector(statusCode)]) {
                 NSHTTPURLResponse *httpReponse = (NSHTTPURLResponse *)response;
@@ -212,7 +216,7 @@ NSString * const kSearchQuery = @"https://api.github.com/search/users?sort=%@&or
 	NSURLSessionDataTask *oAuthDataTask = [self.session dataTaskWithRequest:postRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
 		
 		if (error) {
-			NSLog(@"Error:\n%@", error.localizedDescription);
+			NSLog(@"OAuth Callback Error:\n%@", error.localizedDescription);
 		} else {
 			NSLog(@"Token: %@", response);
 			

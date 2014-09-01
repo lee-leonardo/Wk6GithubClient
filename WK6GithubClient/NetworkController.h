@@ -21,5 +21,6 @@ extern NSString * const kSearchQuery;
 -(void)githubAuthenticate;
 -(void)handleCallbackURL:(NSURL *)url;
 -(void)fetchUser;
+-(void)fetchContactsWithQuery:(NSString *)query;
 
 @end

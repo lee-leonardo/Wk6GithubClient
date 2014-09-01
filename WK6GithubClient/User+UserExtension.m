@@ -12,7 +12,7 @@
 
 //bio, blog, company, email, hireable, location, name
 +(void)generateContactsData:(NSArray *)inputData withContext:(NSManagedObjectContext *)context {
-    NSLog(@"Array:\n%@", inputData);
+    //NSLog(@"Array:\n%@", inputData);
     
     for (NSDictionary *user in inputData) {
         User *userEntity = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];

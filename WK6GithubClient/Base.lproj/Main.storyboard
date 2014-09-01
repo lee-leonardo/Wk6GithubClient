@@ -56,6 +56,9 @@
                                     <string>Repo</string>
                                     <string>User</string>
                                 </scopeButtonTitles>
+                                <connections>
+                                    <outlet property="delegate" destination="Qdq-WA-VMD" id="f3P-5o-dJK"/>
+                                </connections>
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -139,6 +142,9 @@
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="cjZ-Dw-TGG">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="aHa-g8-0kj" id="BVv-so-8Cs"/>
+                                </connections>
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

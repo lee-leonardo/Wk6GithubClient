@@ -39,7 +39,7 @@
         [[_appDelegate networkController] fetchRepos:self];
         _notFirstTime = YES;
     } else {
-        [[_appDelegate dataController] requestDataOfModelType:@"Repository"];
+        [self receiveRepos:nil];
     }
     _resultsController = [[_appDelegate dataController] resultsController];
     _resultsController.delegate = self;
@@ -76,16 +76,17 @@
 }
 
 - (IBAction)createNewRepo:(id)sender {
-    NSLog(@"Create New Repo Fired!");
-//    [_appDelegate networkController]
+    NSLog(@"New Repo!");
     [self presentViewController:_createRepoController animated:YES completion:nil];
 }
 
 -(void)receiveRepos:(NSNotification *)sender {
-    NSLog(@"Fired!");
-    
+    NSLog(@"Received Repos!");
     [[_appDelegate dataController] requestDataOfModelType:@"Repository"];
-    [self.repoTableView reloadData];
+    
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        [self.repoTableView reloadData];
+    }];
 }
 
 -(void)updateCell:(UITableViewCell *)cell forIndexPath:(NSIndexPath *)indexPath {
