@@ -67,7 +67,7 @@
     NSDictionary *searchDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     NSLog(@"%@", searchDictionary);
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReceivedSearch" object:nil];
+    //[[NSNotificationCenter defaultCenter] postNotificationName:@"ReceivedSearch" object:nil];
 }
 
 -(void)addedRepo:(NSData *)data {

@@ -76,6 +76,7 @@
                     <connections>
                         <outlet property="searchDisplayController" destination="AxT-sa-q5H" id="R8q-5M-ORx"/>
                         <outlet property="searchSearchBar" destination="2rA-1p-SAJ" id="2t4-Ys-iz0"/>
+                        <outlet property="searchTableView" destination="D9n-fX-wjL" id="zDx-v9-42V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bx9-h5-nJx" userLabel="First Responder" sceneMemberID="firstResponder"/>
