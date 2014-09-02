@@ -15,6 +15,7 @@
 
 @property (nonatomic, readonly, strong) NSFetchedResultsController *resultsController;
 
+-(void)searchParse:(NSData *)data withType:(NSString *)type;
 -(void)addedRepo:(NSData *)data;
 -(void)repoParse:(NSData *)data;
 -(void)contactParse:(NSData *)data;

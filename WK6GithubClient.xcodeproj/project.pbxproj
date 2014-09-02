@@ -183,10 +183,10 @@
 				387D3F6919ABD70F0002AF3F /* Network & Model */,
 				387D3F6A19ABD7280002AF3F /* SearchViewController.h */,
 				387D3F6B19ABD7280002AF3F /* SearchViewController.m */,
-				387D3F6D19ABD75A0002AF3F /* ContactViewController.h */,
-				387D3F6E19ABD75A0002AF3F /* ContactViewController.m */,
 				387D3F7119ABD7EB0002AF3F /* RepoViewController.h */,
 				387D3F7219ABD7EB0002AF3F /* RepoViewController.m */,
+				387D3F6D19ABD75A0002AF3F /* ContactViewController.h */,
+				387D3F6E19ABD75A0002AF3F /* ContactViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";

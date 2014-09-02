@@ -9,8 +9,9 @@
 #import "SearchViewController.h"
 #import "AppDelegate.h"
 
-@interface SearchViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface SearchViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, NSFetchedResultsControllerDelegate>
 
+@property (weak, nonatomic) IBOutlet UISearchBar *searchSearchBar;
 
 @property (nonatomic, strong) AppDelegate *appDelegate;
 @property (strong, nonatomic) NSFetchedResultsController *resultsController;
@@ -60,5 +61,28 @@
     
     return 10;
 }
+
+#pragma mark UISearchBar
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    NSInteger button = searchBar.selectedScopeButtonIndex;
+    NSString *query = searchBar.text;
+    
+    switch (button) {
+        case 0:
+            //Search for Repo
+            [[_appDelegate networkController] searchForQuery:query withType:@"Repositories"];
+            break;
+        case 1:
+            //Search for User
+            [[_appDelegate networkController] searchForQuery:query withType:@"Users"];
+            break;
+            
+        default:
+            break;
+    }
+    
+}
+
+#pragma mark NSFetchedResults
 
 @end

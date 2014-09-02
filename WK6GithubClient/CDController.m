@@ -56,7 +56,6 @@
     if ([model isEqualToString:@"Repository"]) {
         return [NSSortDescriptor sortDescriptorWithKey:@"fullName" ascending:YES];
     } else if ([model isEqualToString:@"User"]) {
-//    TODO: This can easily be returning nil... how do I fix this?
         return [NSSortDescriptor sortDescriptorWithKey:@"login" ascending:YES];
     } else {
         return nil;
@@ -64,6 +63,13 @@
 }
 
 #pragma mark - Parse Methods
+-(void)searchParse:(NSData *)data withType:(NSString *)type {
+    NSDictionary *searchDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    NSLog(@"%@", searchDictionary);
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReceivedSearch" object:nil];
+}
+
 -(void)addedRepo:(NSData *)data {
     NSDictionary *newRepoDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     [Repository generateRepoData:@[newRepoDictionary] withContext:_dataContext];

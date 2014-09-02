@@ -49,6 +49,42 @@ NSString * const kSearchQuery = @"https://api.github.com/search/users?sort=%@&or
 	return self;
 }
 
+#pragma mark - Search
+-(void)searchForQuery:(NSString *)query withType:(NSString *)type {
+    
+    //I'm locked out of my constants (because I recovered the project... so I'm using this for the time being.
+    NSString *typeLink;
+    if ([type  isEqual: @"Repositories"]) {
+        typeLink = @"search/repositories";
+    } else if ( [type  isEqual: @"Users"]) {
+        typeLink = @"search/users";
+    }
+    
+    NSString *urlString = [NSString stringWithFormat:@"https://api.github.com/%@/?q=%@&sort=desc", typeLink, query];
+    NSURL *url = [[NSURL alloc] initWithString:urlString];
+    
+    [[self.session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (error) {
+            NSLog(@"Search Error: %@", error.localizedDescription);
+        } else {
+            if ([response respondsToSelector:@selector(statusCode)]) {
+                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
+                NSInteger responseCode = [httpResponse statusCode];
+                NSLog(@"Fetch Repos: %lu", (long)responseCode);
+                switch (responseCode) {
+                    case 200:
+                        [[_appDelegate dataController] searchParse:data withType:type];
+                        break;
+                        
+                    default:
+                        break;
+                }
+            }
+        }
+    }] resume];
+    
+}
+
 #pragma mark - Repository (Self)
 -(void)fetchRepos:(id)sender {
     //NSLog(@"Fetch called");
@@ -154,7 +190,7 @@ NSString * const kSearchQuery = @"https://api.github.com/search/users?sort=%@&or
     [createRepoTask resume];
 }
 
-#pragma mark - Search
+#pragma mark - Contact
 -(void)fetchUser {
     NSString *urlString = [[NSString alloc] initWithFormat:kSearchQuery, @"followers", @"asc", @"octocat" ];
     NSURL *url = [[NSURL alloc] initWithString:urlString];
